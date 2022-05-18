@@ -18,7 +18,7 @@ class CreateHospitalsTable extends Migration {
 			$table->string('latitude')->nullable();
 			$table->string('longitude')->nullable();
 			$table->string('image')->nullable();
-			$table->enum('status', array('Active', 'Inactive'))->nullable();
+			$table->enum('status', array('Active', 'Inactive'))->default('Active');
 			$table->timestamps();
 		});
 	}

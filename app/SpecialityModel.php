@@ -15,6 +15,6 @@ class SpecialityModel extends Model
 
     protected $dates = ['deleted_at'];
     protected $fillable = array('name');
-    protected $visible = array('name');
+    protected $visible = array('id','name','status');
 
 }

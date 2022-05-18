@@ -10,7 +10,7 @@ class DiagnosticCenterModel extends Model
     protected $table = 'diagnostic_center';
     public $timestamps = true;
     protected $fillable = array('category_id', 'subcategory_id', 'name', 'phone', 'address', 'description', 'latitude', 'longitude', 'image', 'status', 'avg_rating');
-    protected $visible = array('category_id', 'subcategory_id', 'name', 'phone', 'address', 'description', 'latitude', 'longitude', 'image', 'status', 'avg_rating');
+    protected $visible = array('id','category_id', 'subcategory_id', 'name', 'phone', 'address', 'description', 'latitude', 'longitude', 'image', 'status', 'avg_rating');
 
     public function gallery()
     {

@@ -24,16 +24,46 @@ Route::group(['as'=>'admin::','prefix'=>'cpanel/admin','middleware' => ['web','A
      Route::post('update-category/{id}','Admin\CategoriesController@update')->name('updateCategory');
      Route::get('delete-category/{id}','Admin\CategoriesController@delete')->name('deleteCategory');
      Route::post('category-status/','Admin\CategoriesController@status')->name('categoryStatus');
+
+     Route::post('get-sub-category/','Admin\CategoriesController@getSubcategories')->name('getSubcategories');
      /* Category route end*/
 
-     /* Category route start*/
+     /* Sub Category route start*/
      Route::get('manage-sub-category/{id}','Admin\CategoriesController@subCategory')->name('subCategory');
-     Route::get('add-sub-category','Admin\CategoriesController@addSubCategory')->name('addSubCategory');
+     Route::get('add-sub-category/{id}','Admin\CategoriesController@addSubCategory')->name('addSubCategory');
      Route::post('save-sub-category','Admin\CategoriesController@saveSubCategory')->name('saveSubCategory');
      Route::get('edit-sub-category/{id}','Admin\CategoriesController@editSubCategory')->name('editSubCategory');
      Route::post('update-sub-category/{id}','Admin\CategoriesController@updateSubCategory')->name('updateSubCategory');
      Route::get('delete-sub-category/{id}','Admin\CategoriesController@deleteSubCategory')->name('deleteSubCategory');
      Route::post('sub-category-status/','Admin\CategoriesController@statusSubCategory')->name('statusSubCategory');
-     /* Category route end*/
+     /* Sub Category route end*/
+
+     /* Doctor route start*/
+     Route::get('manage-doctor','Admin\DoctorController@index')->name('manageDoctor');
+     Route::get('add-doctor','Admin\DoctorController@add')->name('addDoctor');
+     Route::post('save-doctor','Admin\DoctorController@save')->name('saveDoctor');
+     Route::get('edit-doctor/{id}','Admin\DoctorController@edit')->name('editDoctor');
+     Route::post('update-doctor/{id}','Admin\DoctorController@update')->name('updateDoctor');
+     Route::get('delete-doctor/{id}','Admin\DoctorController@delete')->name('deleteDoctor');
+     Route::post('doctor-status/','Admin\DoctorController@status')->name('doctorStatus');
+     /* Doctor route end*/
+     /* Diagnostic route start*/
+     Route::get('manage-diagnostic','Admin\DiagnosticController@index')->name('manageDiagnostic');
+     Route::get('add-diagnostic','Admin\DiagnosticController@add')->name('addDiagnostic');
+     Route::post('save-diagnostic','Admin\DiagnosticController@save')->name('saveDiagnostic');
+     Route::get('edit-diagnostic/{id}','Admin\DiagnosticController@edit')->name('editDiagnostic');
+     Route::post('update-diagnostic/{id}','Admin\DiagnosticController@update')->name('updateDiagnostic');
+     Route::get('delete-diagnostic/{id}','Admin\DiagnosticController@delete')->name('deleteDiagnostic');
+     Route::post('diagnostic-status/','Admin\DiagnosticController@status')->name('diagnosticStatus');
+     /* Diagnostic route end*/
+     /* Hospital route start*/
+     Route::get('manage-hospital','Admin\HospitalController@index')->name('manageHospital');
+     Route::get('add-hospital','Admin\HospitalController@add')->name('addHospital');
+     Route::post('save-hospital','Admin\HospitalController@save')->name('saveHospital');
+     Route::get('edit-hospital/{id}','Admin\HospitalController@edit')->name('editHospital');
+     Route::post('update-hospital/{id}','Admin\HospitalController@update')->name('updateHospital');
+     Route::get('delete-hospital/{id}','Admin\HospitalController@delete')->name('deleteHospital');
+     Route::post('hospital-status/','Admin\HospitalController@status')->name('hospitalStatus');
+     /* Hospital route end*/
 
 });

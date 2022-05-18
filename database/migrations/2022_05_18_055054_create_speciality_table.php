@@ -10,7 +10,7 @@ class CreateSpecialityTable extends Migration {
 		Schema::create('speciality', function(Blueprint $table) {
 			$table->increments('id');
 			$table->string('name', 200)->nullable();
-			$table->enum('status', array('Active', 'Inactive'))->nullable();
+			$table->enum('status', array('Active', 'Inactive'))->default('Active');
 			$table->timestamps();
 			$table->softDeletes();
 		});

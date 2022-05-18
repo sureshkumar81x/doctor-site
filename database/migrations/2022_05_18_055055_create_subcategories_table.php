@@ -12,7 +12,7 @@ class CreateSubcategoriesTable extends Migration {
 			$table->integer('category_id')->unsigned();
 			$table->string('name')->nullable();
 			$table->string('image')->nullable();
-			$table->enum('status', array('Active', 'Inactive'))->nullable();
+			$table->enum('status', array('Active', 'Inactive'))->default('Active');
 			$table->timestamps();
 		});
 	}

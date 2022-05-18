@@ -11,7 +11,7 @@ class CreateCategoriesTable extends Migration {
 			$table->increments('id');
 			$table->string('name')->nullable();
 			$table->string('image')->nullable();
-			$table->enum('status', array('Active', 'Inactive'))->nullable();
+			$table->enum('status', array('Active', 'Inactive'))->default('Active');
 			$table->timestamps();
 		});
 	}

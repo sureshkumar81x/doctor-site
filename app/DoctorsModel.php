@@ -15,7 +15,7 @@ class DoctorsModel extends Model
 
     protected $dates = ['deleted_at'];
     protected $fillable = array('category_id', 'subcategory_id', 'name', 'phone', 'address', 'latitude', 'longitude', 'description', 'profile_image', 'working_hours', 'avg_rating', 'status');
-    protected $visible = array('category_id', 'subcategory_id', 'name', 'phone', 'address', 'latitude', 'longitude', 'description', 'profile_image', 'working_hours', 'avg_rating', 'status');
+    protected $visible = array('id','category_id', 'subcategory_id', 'name', 'phone', 'address', 'latitude', 'longitude', 'description', 'profile_image', 'working_hours', 'avg_rating', 'status');
 
     public function reviews()
     {

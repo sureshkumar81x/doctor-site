@@ -18,7 +18,7 @@ class CreateDiagnosticCenterTable extends Migration {
 			$table->string('latitude')->nullable();
 			$table->string('longitude')->nullable();
 			$table->string('image')->nullable();
-			$table->enum('status', array('Active', 'Inactive'))->nullable();
+			$table->enum('status', array('Active', 'Inactive'))->default('Active');
 			$table->float('avg_rating', 8,2)->nullable()->default('0.00');
 			$table->timestamps();
 		});

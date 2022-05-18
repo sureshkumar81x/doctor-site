@@ -29,10 +29,34 @@ $segment= Request::segment(3);
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{route('admin::manageCategory')}}" class="nav-link @if($segment=='manage-category') active @endif">
+                    <a href="{{route('admin::manageCategory')}}" class="nav-link @if($segment=='manage-category' || $segment=='manage-sub-category') active @endif">
                         <i class="nav-icon fas fa-list"></i>
                         <p>
                             Manage Categories
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin::manageDoctor')}}" class="nav-link @if($segment=='manage-doctor') active @endif">
+                        <i class="nav-icon fas fa-users"></i>
+                        <p>
+                            Manage Doctors
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin::manageDiagnostic')}}" class="nav-link @if($segment=='manage-diagnostic') active @endif">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Manage Diagnostics
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('admin::manageHospital')}}" class="nav-link @if($segment=='manage-hospital') active @endif">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>
+                            Manage Hospitals
                         </p>
                     </a>
                 </li>

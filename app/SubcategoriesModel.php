@@ -10,7 +10,7 @@ class SubcategoriesModel extends Model
     protected $table = 'subcategories';
     public $timestamps = true;
     protected $fillable = array('category_id', 'name', 'image', 'status');
-    protected $visible = array('category_id', 'name', 'image', 'status');
+    protected $visible = array('id','category_id', 'name', 'image', 'status');
 
     public function getDoctors()
     {

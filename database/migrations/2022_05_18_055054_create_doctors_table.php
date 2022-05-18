@@ -20,7 +20,7 @@ class CreateDoctorsTable extends Migration {
 			$table->string('profile_image')->nullable();
 			$table->string('working_hours', 250)->nullable();
 			$table->float('avg_rating', 8,2)->nullable()->default('0.00');
-			$table->enum('status', array('Active', 'Inactive'))->nullable();
+			$table->enum('status', array('Active', 'Inactive'))->default('Active');
 			$table->timestamps();
 			$table->softDeletes();
 		});

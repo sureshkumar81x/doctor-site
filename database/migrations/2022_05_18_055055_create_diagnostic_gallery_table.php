@@ -11,7 +11,7 @@ class CreateDiagnosticGalleryTable extends Migration {
 			$table->increments('id');
 			$table->integer('diagnostic_id')->unsigned();
 			$table->string('image')->nullable();
-			$table->enum('status', array('Active', 'Inactive'))->nullable();
+			$table->enum('status', array('Active', 'Inactive'))->default('Active');
 			$table->timestamps();
 		});
 	}
