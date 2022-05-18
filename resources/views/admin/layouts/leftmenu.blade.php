@@ -27,22 +27,14 @@ $segment= Request::segment(3);
                         </p>
                     </a>
                 </li>
-                <li class="nav-item @if($segment=='manage-users') menu-open @endif">
-                    <a href="#" class="nav-link @if($segment=='manage-users') active @endif">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
+
+                <li class="nav-item">
+                    <a href="{{route('admin::manageCategory')}}" class="nav-link @if($segment=='manage-category') active @endif">
+                        <i class="nav-icon fas fa-list"></i>
                         <p>
-                            Manage Users
-                            <i class="right fas fa-angle-left"></i>
+                            Manage Categories
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('admin::manageUsers')}}" class="nav-link @if($segment=='manage-users') active @endif">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Users</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
 
             </ul>

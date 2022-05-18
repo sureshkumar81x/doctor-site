@@ -23,7 +23,22 @@
     <div class="card">
         <div class="card-body login-card-body">
             <p class="login-box-msg">Sign in to start your session</p>
-
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div><br />
+             @endif
+            @if(Session::has('error'))
+                <div class="alert alert-danger">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                    <strong>{{Session::get('error')}}</strong>
+                </div>
+            @endif
             <form action="{{route('adminLogin')}}" method="post">
                 {{csrf_field()}}
                 <div class="input-group mb-3">

@@ -16,5 +16,24 @@ Route::group(['as'=>'admin::','prefix'=>'cpanel/admin','middleware' => ['web','A
     Route::get('delete-user/{id}','Admin\UserController@delete')->name('deleteUser');
     Route::post('active-inactive-user/','Admin\UserController@status')->name('userStatus');
     /* Users route end*/
+     /* Category route start*/
+     Route::get('manage-category','Admin\CategoriesController@index')->name('manageCategory');
+     Route::get('add-category','Admin\CategoriesController@add')->name('addCategory');
+     Route::post('save-category','Admin\CategoriesController@save')->name('saveCategory');
+     Route::get('edit-category/{id}','Admin\CategoriesController@edit')->name('editCategory');
+     Route::post('update-category/{id}','Admin\CategoriesController@update')->name('updateCategory');
+     Route::get('delete-category/{id}','Admin\CategoriesController@delete')->name('deleteCategory');
+     Route::post('category-status/','Admin\CategoriesController@status')->name('categoryStatus');
+     /* Category route end*/
+
+     /* Category route start*/
+     Route::get('manage-sub-category/{id}','Admin\CategoriesController@subCategory')->name('subCategory');
+     Route::get('add-sub-category','Admin\CategoriesController@addSubCategory')->name('addSubCategory');
+     Route::post('save-sub-category','Admin\CategoriesController@saveSubCategory')->name('saveSubCategory');
+     Route::get('edit-sub-category/{id}','Admin\CategoriesController@editSubCategory')->name('editSubCategory');
+     Route::post('update-sub-category/{id}','Admin\CategoriesController@updateSubCategory')->name('updateSubCategory');
+     Route::get('delete-sub-category/{id}','Admin\CategoriesController@deleteSubCategory')->name('deleteSubCategory');
+     Route::post('sub-category-status/','Admin\CategoriesController@statusSubCategory')->name('statusSubCategory');
+     /* Category route end*/
 
 });
