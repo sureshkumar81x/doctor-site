@@ -9,7 +9,7 @@ class PageContentModel extends Model
 
     protected $table = 'page_content';
     public $timestamps = true;
-    protected $fillable = array('key', 'description', 'contents', 'image', 'page');
-    protected $visible = array('id','key', 'description', 'contents', 'image', 'page');
+    protected $fillable = array('key','title','description', 'contents', 'image', 'page');
+    protected $visible = array('id','key','title', 'description', 'contents', 'image', 'page');
 
 }

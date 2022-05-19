@@ -1,5 +1,6 @@
 <?php
 $segment= Request::segment(3);
+$segment1= Request::segment(4);
 ?>
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Sidebar -->
@@ -60,7 +61,23 @@ $segment= Request::segment(3);
                         </p>
                     </a>
                 </li>
-
+                <li class="nav-item @if($segment=='manage-content') menu-open @endif">
+                    <a href="#" class="nav-link @if($segment=='manage-content') active @endif">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Manage Contents
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{route('admin::manageContent','home')}}" class="nav-link @if($segment1=='home') active @endif">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Home</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

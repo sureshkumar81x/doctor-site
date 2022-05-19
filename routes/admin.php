@@ -65,5 +65,10 @@ Route::group(['as'=>'admin::','prefix'=>'cpanel/admin','middleware' => ['web','A
      Route::get('delete-hospital/{id}','Admin\HospitalController@delete')->name('deleteHospital');
      Route::post('hospital-status/','Admin\HospitalController@status')->name('hospitalStatus');
      /* Hospital route end*/
+     /* CMS route start*/
+     Route::get('manage-content/{page}','Admin\CmsController@index')->name('manageContent');
+     Route::get('edit-content/{id}','Admin\CmsController@edit')->name('editContent');
+     Route::post('update-content/{id}','Admin\CmsController@update')->name('updateContent');
+     /* CMS route end*/
 
 });
