@@ -1,19 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
-
-use App\Faq;
-use App\PageContents;
-use App\Plans;
-use App\Portfolio;
-use App\Services;
-use App\Testimonial;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\PageContentModel;
 
 class PageController extends Controller
 {
     public function index(){
-        return view('frontend.pages.index');
+        $top_text = PageContentModel::where('key','top-text')->where('page','home')->first();
+        return view('frontend.pages.index',compact('top_text'));
     }
 }
