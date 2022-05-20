@@ -37,7 +37,6 @@ class CmsController extends Controller
             'title.required' => 'Enter title.',
             'description.required' => 'Enter Description.',
             'content.required' => 'Enter Contents',
-            'image.required' => 'Select Image.',
         ];
         $validation = [];
         if(!empty($info->title)){
@@ -53,11 +52,6 @@ class CmsController extends Controller
         if(!empty($info->content)){
             $validation = array_merge($validation,[
                 'content' => 'required' 
-            ]);
-        }
-        if(!empty($info->image)){
-            $validation = array_merge($validation,[
-                'image' => 'required' 
             ]);
         }
         $this->validate($request, $validation, $msg);
