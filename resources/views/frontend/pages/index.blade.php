@@ -88,7 +88,7 @@
             </div>
             <div>
                 <div class="class-absolute">
-                    <img src="{{ asset('/') }}/uploads/content/{{$banner_image}}" alt="">
+                    <img src="{{ asset('/') }}uploads/content/{{$banner_image}}" alt="">
                 </div>
             </div>
         </div>
@@ -102,7 +102,7 @@
                 @foreach($book_free as $row)
                 <div class="d-flex align-items-center mr-3">
                     <p class="book-appointment">
-                        <img src="{{ asset('/') }}/uploads/content/{{$row->image}}" alt="">
+                        <img src="{{ asset('/') }}uploads/content/{{$row->image}}" alt="">
                     <div class="text-white ml-4">
                         {{$row->description}}
                     </div>
@@ -125,7 +125,7 @@
         <div class="row align-items-end">
             <div class="col-sm-7">
                 <div class="img-media">
-                    <img src="{{ asset('/') }}/uploads/content/{{$get_in_touch_image}}" alt="">
+                    <img src="{{ asset('/') }}uploads/content/{{$get_in_touch_image}}" alt="">
                     <button class="btn btn-dignis">
                         Get in Touch
                         <div class="icon-class">
@@ -312,7 +312,7 @@
             </div>
             <div class="col-sm-7">
                 <div class="img-media">
-                    <img src="{{ asset('/') }}/uploads/content/{{$doctor_image}}" alt="">
+                    <img src="{{ asset('/') }}uploads/content/{{$doctor_image}}" alt="">
                     <button class="btn btn-dignis-1">
                         Get in Touch
                         <div class="icon-class">
@@ -407,7 +407,7 @@
         <div class="row align-items-end">
             <div class="col-sm-6">
                 <div class="img-media">
-                    <img src="{{ asset('/') }}/uploads/content/{{$trust_us['image']}}" alt="">
+                    <img src="{{ asset('/') }}uploads/content/{{$trust_us['image']}}" alt="">
                 </div>
             </div>
             <div class="col-sm-6">
@@ -420,7 +420,7 @@
                     <div class="col-sm-6">
                         <div class="cards-2">
                             <div>
-                                <img src="{{ asset('/') }}/uploads/content/{{$row->image}}" alt="">
+                                <img src="{{ asset('/') }}uploads/content/{{$row->image}}" alt="">
                                 <div class="row">
                                     <div class="col-12 p-0">
                                         <p class="head-para">{{$row->title}}</p>
@@ -521,7 +521,7 @@
 <section class="mt-100 ">
     <div class="container">
         <div class="bg-care text-center img-media">
-            <img src="{{ asset('/') }}/uploads/content/{{$bottom_get_in_touch}}" alt="">
+            <img src="{{ asset('/') }}uploads/content/{{$bottom_get_in_touch}}" alt="">
 
             <div class="row">
                 <div class="col-sm-6">
