@@ -36,6 +36,7 @@
                                 <th>Id</th>
                                 <th>Sl No</th>
                                 <th>key</th>
+                                <th>Image</th>
                                 <th>page</th>
                                 <th>Action</th>
                             </tr>
@@ -59,10 +60,11 @@
                     {data: 'id', name: 'id', 'visible': false},
                     {data: 'DT_RowIndex', name: 'DT_RowIndex', orderable: false,searchable: false},
                     {data: 'key', name: 'key'},
+                    {data: 'image', name: 'image'},
                     {data: 'page', name: 'page'},
                     {data: 'action', name: 'action', orderable: false, searchable: true}
                 ],
-                "order": [[0,'desc']],
+                "order": [[0,'asc']],
                 "pageLength": 10,
                 "fnDrawCallback": function () {
                     init();

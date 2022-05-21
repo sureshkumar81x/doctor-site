@@ -15,12 +15,18 @@ class CmsController extends Controller
             $data = PageContentModel::where("page",$page)->get();
             return Datatables::of($data)
                 ->addIndexColumn()
+                ->addColumn('image', function ($data) {
+                    if($data->image!=null){
+                       return '<img src="'.url('/uploads/').'/content/'.$data->image.'" width="100px" height="100px">';
+                    }
+                    return 'N/A';
+                })
                 ->addColumn('action', function ($data) {
                     $url_update = route('admin::editContent', ['id' => $data->id]);
                     $edit = '<a href="' . $url_update . '" class="btn btn-xs btn-primary fancybox fancybox.iframe" title="Edit"><i class="fas fa-edit"></i></a>';
                     return $edit;
                 })
-                ->rawColumns(['action'])
+                ->rawColumns(['image','action'])
                 ->toJson();
         }
         return view('admin.page_content.index',compact('page'));

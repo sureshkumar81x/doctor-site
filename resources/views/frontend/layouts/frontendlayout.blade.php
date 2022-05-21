@@ -40,7 +40,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="{{route('home')}}">Home <span class="sr-only">(current)</span></a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -91,7 +91,7 @@
                                     <h3>Quick Links</h3>
                                 </div>
                                 <ul>
-                                    <li><a href="#">Home</a></li>
+                                    <li><a href="{{route('home')}}">Home</a></li>
                                     <li><a href="#">Services</a></li>
                                     <li><a href="#">Find Doctors</a></li>
     

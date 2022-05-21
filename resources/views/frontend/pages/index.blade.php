@@ -88,7 +88,7 @@
             </div>
             <div>
                 <div class="class-absolute">
-                    <img src="{{ asset('/') }}/frontendtheme/images/main-doc.png" alt="">
+                    <img src="{{ asset('/') }}/uploads/content/{{$banner_image}}" alt="">
                 </div>
             </div>
         </div>
@@ -99,43 +99,20 @@
         <div class="col-sm-8">
             <div class="d-flex" id="abolute">
                 <h6 class="book-appoinment">Book Free Appointments</h6>
+                @foreach($book_free as $row)
                 <div class="d-flex align-items-center mr-3">
                     <p class="book-appointment">
-                        <img src="{{ asset('/') }}/frontendtheme/images/patient 1.png" alt="">
+                        <img src="{{ asset('/') }}/uploads/content/{{$row->image}}" alt="">
                     <div class="text-white ml-4">
-                        Get free consultation for 50+ diseases across India
+                        {{$row->description}}
                     </div>
                     </p>
                 </div>
-                <div class="d-flex align-items-center mr-3">
-                    <p class="book-appointment">
-                        <img src="{{ asset('/') }}/frontendtheme/images/front-desk 1.png" alt="">
-                    <div class="text-white ml-4">
-                        In-person and online
-                        consultation with
-                        experienced doctors
-                    </div>
-                    </p>
-                </div>
-                <div class="d-flex align-items-center mr-3">
-                    <p class="book-appointment">
-                        <img src="{{ asset('/') }}/frontendtheme/images/doctor 2.png" alt="">
-                    <div class="text-white ml-4">
-                        Extensive medical
-                        assistance throughout
-                        your treatment
-                    </div>
-                    </p>
-                </div>
+                @endforeach
             </div>
         </div>
-
     </div>
-
-
 </div>
-
-
 </section>
 
 
@@ -148,7 +125,7 @@
         <div class="row align-items-end">
             <div class="col-sm-7">
                 <div class="img-media">
-                    <img src="{{ asset('/') }}/frontendtheme/images/diagonis.png" alt="">
+                    <img src="{{ asset('/') }}/uploads/content/{{$get_in_touch_image}}" alt="">
                     <button class="btn btn-dignis">
                         Get in Touch
                         <div class="icon-class">
@@ -335,7 +312,7 @@
             </div>
             <div class="col-sm-7">
                 <div class="img-media">
-                    <img src="{{ asset('/') }}/frontendtheme/images/doctor.png" alt="">
+                    <img src="{{ asset('/') }}/uploads/content/{{$doctor_image}}" alt="">
                     <button class="btn btn-dignis-1">
                         Get in Touch
                         <div class="icon-class">
@@ -353,12 +330,12 @@
 <section class="mt-100">
     <div class="container">
         <h1 class="head-main-3 text-center mb-5">Medical Directory</h1>
-
         <div id="demo" class="carousel slide silder-1" data-ride="false">
-
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                @foreach($medicals->chunk(6) as $medical)
+                <div class="carousel-item @if($loop->index==0) active @endif">
                     <div class="row">
+                        @foreach($medical as $row)
                         <div class="col-sm-6 mt-3">
                             <div class="">
                                 <div class="border  rounded-lg p-2">
@@ -370,8 +347,8 @@
                                                         alt="">
                                                 </div>
                                                 <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
+                                                    <h5 class="doctor-name">{{$row->name}}</h5>
+                                                    <p class="sub-para">Medical Centers</p>
                                                 </div>
                                             </div>
 
@@ -379,20 +356,18 @@
                                                 <div class="col-sm-6 p-0">
                                                     <p class="sub-para">Phone</p>
                                                     <h6 class="address-num">
-                                                        (505) 555-0125
+                                                        {{$row->phone}}
                                                     </h6>
                                                 </div>
                                                 <div class="col-sm-6 p-0">
                                                     <p class="sub-para">Adress</p>
                                                     <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
+                                                        {{$row->address}}
                                                     </h6>
                                                 </div>
                                             </div>
-
                                             <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
+                                                <p class="sub-para">{{$row->description}}</p>
                                             </div>
                                         </div>
                                         <div class="col-4 p-0">
@@ -403,788 +378,24 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                        @endforeach
                     </div>
                 </div>
-                <div class="carousel-item ">
-                    <div class="row">
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div class="row">
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-6 mt-3">
-                            <div class="">
-                                <div class="border  rounded-lg p-2">
-                                    <div class="row">
-                                        <div class="col-8 p-0 pl-3 pt-3">
-                                            <div class="row mb-2">
-                                                <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
-                                                        alt="">
-                                                </div>
-                                                <div>
-                                                    <h5 class="doctor-name">Monika Chauhan</h5>
-                                                    <p class="sub-para">Diagnostic Centers</p>
-                                                </div>
-                                            </div>
-
-                                            <div class="row mb-2">
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Phone</p>
-                                                    <h6 class="address-num">
-                                                        (505) 555-0125
-                                                    </h6>
-                                                </div>
-                                                <div class="col-sm-6 p-0">
-                                                    <p class="sub-para">Adress</p>
-                                                    <h6 class="address-num">
-                                                        2118 Thornridge Cir. Syracuse, Connecticut
-                                                    </h6>
-                                                </div>
-                                            </div>
-
-                                            <div>
-                                                <p class="sub-para">We are the fastest growing doctors directory,
-                                                    medical directory, and hospital...</p>
-                                            </div>
-                                        </div>
-                                        <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+                @endforeach
             </div>
-
-
-
             <!-- Indicators -->
             <ul class="carousel-indicators mt-4 ">
-                <li data-target="#demo" data-slide-to="0" class="active"></li>
-                <li data-target="#demo" data-slide-to="1"></li>
-                <li data-target="#demo" data-slide-to="2"></li>
+                @foreach($medicals->chunk(6) as $medical)
+                   <li data-target="#demo" data-slide-to="{{$loop->index}}" class="@if($loop->index==0) active @endif"></li>
+                @endforeach
             </ul>
-
             <button class="btn btn-dignis-2">
                 View All
                 <div class="icon-class">
                     <i class="fas fa-chevron-right ml-2"></i>
                 </div>
             </button>
-
-
         </div>
-
     </div>
 </section>
 
@@ -1196,90 +407,30 @@
         <div class="row align-items-end">
             <div class="col-sm-6">
                 <div class="img-media">
-                    <img src="{{ asset('/') }}/frontendtheme/images/trust-doc.png" alt="">
+                    <img src="{{ asset('/') }}/uploads/content/{{$trust_us['image']}}" alt="">
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="text-right">
-                    <h1 class="head-main-3">Why you should
-                        <br>
-                        trust us?
+                    <h1 class="head-main-3">{{$trust_us['title']}}
                     </h1>
                 </div>
                 <div class="row ">
+                    @foreach ($trust_us_list as $row)
                     <div class="col-sm-6">
                         <div class="cards-2">
                             <div>
-                                <img src="{{ asset('/') }}/frontendtheme/images/12.png" alt="">
+                                <img src="{{ asset('/') }}/uploads/content/{{$row->image}}" alt="">
                                 <div class="row">
                                     <div class="col-12 p-0">
-                                        <p class="head-para">COVID - 19 safe</p>
-                                        <p class="sub-para">Your safety is taken care of by thermal screening,
-                                            social distancing, sanitized clinics and hospital rooms, sterilized
-                                            surgical equipment</p>
+                                        <p class="head-para">{{$row->title}}</p>
+                                        <p class="sub-para">{{$row->description}}</p>
                                     </div>
-
-
-
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="cards-2">
-                            <div>
-                                <img src="{{ asset('/') }}/frontendtheme/images/11.png" alt="">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <p class="head-para">Post Surgery Care</p>
-                                        <p class="sub-para">We offer free follow-up consultations and
-                                            instructions
-                                            including dietary tips as well as exercises to every patient to ensure
-                                            they have a smooth recovery to their daily routines.</p>
-                                    </div>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="cards-2">
-                            <div>
-                                <img src="{{ asset('/') }}/frontendtheme/images/10.png" alt="">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <p class="head-para">Medical Expertise</p>
-                                        <p class="sub-para">Our surgeons spend a lot of time with you to diagnose
-                                            your condition. You are assisted in all pre-surgery medical diagnostics.
-                                            We offer advanced laser and laparoscopic surgical treatment.</p>
-                                    </div>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="cards-2">
-                            <div>
-                                <img src="{{ asset('/') }}/frontendtheme/images/9.png" alt="">
-                                <div class="row">
-                                    <div class="col-12 p-0">
-                                        <p class="head-para">Assisted Surgery Experience</p>
-                                        <p class="sub-para">Adedicated Medical Coordinator assists you throughout
-                                            the surgery journey from insurance paperwork, to free commute from home
-                                            to hospital </p>
-                                    </div>
-
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -1290,1144 +441,71 @@
     <div class="container">
         <h1 class="head-main-3 text-center mb-5">Doctor Directory</h1>
         <div id="demo1" class="carousel slide " data-ride="false">
-
-
             <!-- The slideshow -->
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                @foreach($doctors->chunk(8) as $doctor)
+                <div class="carousel-item @if($loop->index==0) active @endif">
                     <div>
                         <div class="row">
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
+                            @foreach($doctor as $doc)
+                                <div class="col-sm-3 mb-4">
+                                    <div>
+                                        <div class="bg-white p-3 doctor-dir">
                                             <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
+                                                <div>
+                                                    <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
+                                                        alt="">
+                                                </div>
+                                                <div>
+                                                    <h6 class="star-review"><span class="fas fa-star checked"></span>
+                                                        {{$doc->avg_rating}}</h6>
+                                                </div>
+
                                             </div>
+
                                             <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
+                                                <p class="head-para mt-2">{{$doc->name}}</p>
+                                                <p class="sub-para mt-2">{{$doc->category->name}}</p>
+
                                             </div>
 
-                                        </div>
+                                            <div class="d-flex align-items-center my-2">
+                                                <p class="sub-para"> <i class="fas fa-phone-alt"></i>
+                                                <h6 class="address-num ml-3">
+                                                    {{$doc->phone}}
+                                                </h6>
+                                                </p>
 
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
+                                            </div>
 
-                                        </div>
+                                            <div class="d-flex align-items-center my-2">
+                                                <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
+                                                <h6 class="address-num m-0 ml-3">
+                                                    {{$doc->address}}
+                                                </h6>
+                                                </p>
 
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
+                                            </div>
 
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
+                                            <div class="mt-3">
+                                                <p class="sub-para">{{$doc->description}}</p>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
+                            @endforeach
                         </div>
                     </div>
                 </div>
-                <div class="carousel-item">
-                    <div>
-                        <div class="row">
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                    <div>
-                        <div class="row">
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-3 mb-4">
-                                <div>
-                                    <div class="bg-white p-3 doctor-dir">
-                                        <div>
-                                            <div>
-                                                <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
-                                                    alt="">
-                                            </div>
-                                            <div>
-                                                <h6 class="star-review"><span class="fas fa-star checked"></span>
-                                                    4.7</h6>
-                                            </div>
-
-                                        </div>
-
-                                        <div>
-                                            <p class="head-para mt-2">Monika Chauhan</p>
-                                            <p class="sub-para mt-2">Diagnostic Centers</p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-phone-alt"></i>
-                                            <h6 class="address-num ml-3">
-                                                (702) 555-0122
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="d-flex align-items-center my-2">
-                                            <p class="sub-para"> <i class="fas fa-map-marker-alt"></i>
-                                            <h6 class="address-num m-0 ml-3">
-                                                4140 Parker Rd. Allentown, New Mexico 31134
-                                            </h6>
-                                            </p>
-
-                                        </div>
-
-                                        <div class="mt-3">
-                                            <p class="sub-para">Amet minim mollit non deserunt ullamco est sit
-                                                aliqua dolor do amet sint. Velit officia conseq...</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
 
             <!-- Indicators -->
             <ul class="carousel-indicators">
-                <li data-target="#demo1" data-slide-to="0" class="active"></li>
-                <li data-target="#demo1" data-slide-to="1"></li>
-                <li data-target="#demo1" data-slide-to="2"></li>
+                @foreach($doctors->chunk(8) as $doctor)
+                 <li data-target="#demo1" data-slide-to="{{$loop->index}}" class="@if($loop->index==0) active @endif"></li>
+                @endforeach
             </ul>
-
             <button class="btn btn-dignis-3">
                 View All Doctors
                 <div class="icon-class">
@@ -2440,14 +518,10 @@
 
     </div>
 </section>
-
-
-
-
 <section class="mt-100 ">
     <div class="container">
         <div class="bg-care text-center img-media">
-            <img src="{{ asset('/') }}/frontendtheme/images/care.png" alt="">
+            <img src="{{ asset('/') }}/uploads/content/{{$bottom_get_in_touch}}" alt="">
 
             <div class="row">
                 <div class="col-sm-6">
