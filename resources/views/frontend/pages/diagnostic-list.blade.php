@@ -36,7 +36,7 @@
         <div class="col-sm-6 pl-0">
             <div class="baner-left-side-1">
                 <h1>
-                    Doctor Directory
+                    Diagnostic Directory
                 </h1>
             </div>
         </div>
