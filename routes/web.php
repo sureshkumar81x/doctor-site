@@ -5,8 +5,14 @@ Route::post('login','Admin\AdminController@Check_login')->name('adminLogin');
 
 Route::get('logout','Admin\AdminController@logout')->name('adminLogout');
 
-Route::get('/','Frontend\PageController@index')->name('home');
 
+/**
+ * Frontend route starting
+ */
+Route::get('/','Frontend\PageController@index')->name('home');
+Route::get('/doctors','Frontend\PageController@doctors')->name('doctors');
+Route::get('/hospitals','Frontend\PageController@hospitals')->name('hospitals');
+Route::get('/diagnostics','Frontend\PageController@diagnostics')->name('diagnostics');
 
 
 

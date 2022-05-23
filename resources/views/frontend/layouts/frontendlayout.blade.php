@@ -29,7 +29,7 @@
     @stack('css')
 </head>
 <body>
-    <section class="banner-section">
+    <section class="@if(\Request::route()->getName()=='home')banner-section @else banner-section-1 @endif">
         <nav class="navbar navbar-expand-lg navbar-dark bg-transprenat container pt-4">
             <a class="navbar-brand" href="#">Medical Directory</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -68,6 +68,31 @@
 
         @yield('contents')
 
+        @php
+          $bottom_get_in_touch = App\PageContentModel::where('key','bottom-get-in-touch')->where('page','home')->value('image');
+        @endphp
+        <section class="mt-100 ">
+            <div class="container">
+                <div class="bg-care text-center img-media">
+                    <img src="{{ asset('/') }}/uploads/content/{{$bottom_get_in_touch }}" alt="">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="abolute-green">
+                                <button class="btn btn-dignis-4">
+                                    Get in Touch
+                                    <div class="icon-class">
+                                        <i class="fas fa-chevron-right ml-2"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                </div>
+            </div>
+            </div>
+            </section>
 
         <footer class="footer-section mt-100">
             <div class="container">

@@ -329,7 +329,7 @@
 
 <section class="mt-100">
     <div class="container">
-        <h1 class="head-main-3 text-center mb-5">Medical Directory</h1>
+        <h1 class="head-main-3 text-center mb-5">Hospitals Directory</h1>
         <div id="demo" class="carousel slide silder-1" data-ride="false">
             <div class="carousel-inner">
                 @foreach($medicals->chunk(6) as $medical)
@@ -389,12 +389,14 @@
                    <li data-target="#demo" data-slide-to="{{$loop->index}}" class="@if($loop->index==0) active @endif"></li>
                 @endforeach
             </ul>
+            <a href="{{route('hospitals')}}">
             <button class="btn btn-dignis-2">
                 View All
                 <div class="icon-class">
                     <i class="fas fa-chevron-right ml-2"></i>
                 </div>
             </button>
+        </a>
         </div>
     </div>
 </section>
@@ -506,40 +508,16 @@
                  <li data-target="#demo1" data-slide-to="{{$loop->index}}" class="@if($loop->index==0) active @endif"></li>
                 @endforeach
             </ul>
+            <a href="{{route('doctors')}}">
             <button class="btn btn-dignis-3">
                 View All Doctors
                 <div class="icon-class">
                     <i class="fas fa-chevron-right ml-2"></i>
                 </div>
             </button>
-
-
+        </a>
         </div>
 
-    </div>
-</section>
-<section class="mt-100 ">
-    <div class="container">
-        <div class="bg-care text-center img-media">
-            <img src="{{ asset('/') }}uploads/content/{{$bottom_get_in_touch}}" alt="">
-
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="abolute-green">
-                        <button class="btn btn-dignis-4">
-                            Get in Touch
-                            <div class="icon-class">
-                                <i class="fas fa-chevron-right ml-2"></i>
-                            </div>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-
-        </div>
-    </div>
     </div>
 </section>
 @endsection

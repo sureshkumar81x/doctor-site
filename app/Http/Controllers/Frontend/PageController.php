@@ -20,8 +20,19 @@ class PageController extends Controller
         $doctors = DoctorsModel::where("status","Active")->take(24)->get();
         $trust_us = PageContentModel::where('key','trust-us')->where('page','home')->first();
         $trust_us_list = PageContentModel::where('key','trust-us-list')->where('page','home')->get();
-        $bottom_get_in_touch = PageContentModel::where('key','bottom-get-in-touch')->where('page','home')->value('image');
         return view('frontend.pages.index',compact('top_text','book_free',
-        'banner_image','get_in_touch_image','doctor_image','medicals','doctors','trust_us','trust_us_list','bottom_get_in_touch'));
+        'banner_image','get_in_touch_image','doctor_image','medicals','doctors','trust_us','trust_us_list'));
+    }
+    public function doctors(Request $request){
+      $doctors = DoctorsModel::where('status','Active')->paginate(6);  
+      return view('frontend.pages.doctor-list',compact('doctors'));
+    }
+    public function hospitals(Request $request){
+        $hospitals = DoctorsModel::where('status','Active')->paginate(6);  
+        return view('frontend.pages.hospital-list',compact('hospitals'));
+    }
+    public function diagnostics(Request $request){
+        $diagnostics = DoctorsModel::where('status','Active')->paginate(6);  
+        return view('frontend.pages.diagnostic-list',compact('diagnostics'));
     }
 }
