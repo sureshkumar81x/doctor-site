@@ -90,7 +90,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Hospital Image</label>
                                         <div class="col-md-6">
-                                            <input type="file" class="form-control" name="profile_image"/>
+                                            <input type="file" class="form-control" name="image"/>
                                         </div>
                                     </div>
                                 </div>
