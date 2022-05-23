@@ -45,7 +45,7 @@
                 <ol class="breadcrumb justify-content-end ">
 
                     <li class="breadcrumb-item"><a href="{{url('/')}}">Home</a></li>
-                    <li class="breadcrumb-item active " aria-current="page">Doctor Directory</li>
+                    <li class="breadcrumb-item active " aria-current="page">Diagnostic Directory</li>
                 </ol>
             </nav>
         </div>
