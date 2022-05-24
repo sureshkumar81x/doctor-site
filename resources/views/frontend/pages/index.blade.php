@@ -10,13 +10,13 @@
                 <p class="pt-3"> {{$top_text->description}}</p>
 
                 <div>
-                    <form action="#" id="header-search-people" class="form-area" novalidate="novalidate"
+                    <form action="{{route('doctors')}}" method="get" id="header-search-people" class="form-area" novalidate="novalidate"
                         autocomplete="off">
                         <div class="row">
                             <div class="col-md-12 p-0">
                                 <div class="styled-input wide multi">
                                     <div class="first-name" id="input-first-name">
-                                        <input type="text" placeholder="Search doctors" name="fn" id="fn"
+                                        <input type="text" placeholder="Search doctors" name="keyword" id="fn"
                                             autocomplete="off" data-placeholder-focus="false" required />
 
                                         <div class="icon-absoulte">
@@ -32,7 +32,7 @@
 
                                     </div>
                                     <div class="last-name border-0" id="input-last-name">
-                                        <input type="text" placeholder="Select a location" name="ln" id="ln"
+                                        <input type="text" placeholder="Select a location" name="location" id="ln"
                                             autocomplete="off" data-placeholder-focus="false" required />
                                         <div class="icon-absoulte">
                                             <svg width="18" height="19" viewBox="0 0 18 19" fill="none"

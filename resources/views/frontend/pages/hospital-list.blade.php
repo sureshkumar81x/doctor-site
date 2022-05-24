@@ -54,102 +54,63 @@
 </section>
 <section class="mt-70 ">
 <div class="container">
+    <form action="" method="get">
     <div class="row">
-        <div class="col-sm-3">
-            <div class="option-card">
-                <h4>Refine Search</h4>
-                <div class="mb-3">
-                    <div class="icon-select">
-                        <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M15 17H3C2.80109 17 2.61032 16.921 2.46967 16.7803C2.32902 16.6397 2.25 16.4489 2.25 16.25V2.75C2.25 2.55109 2.32902 2.36032 2.46967 2.21967C2.61032 2.07902 2.80109 2 3 2H15C15.1989 2 15.3897 2.07902 15.5303 2.21967C15.671 2.36032 15.75 2.55109 15.75 2.75V16.25C15.75 16.4489 15.671 16.6397 15.5303 16.7803C15.3897 16.921 15.1989 17 15 17ZM6 5.75V7.25H12V5.75H6ZM6 8.75V10.25H12V8.75H6ZM6 11.75V13.25H9.75V11.75H6Z"
-                                fill="#B5C1D7" />
-                        </svg>
-                        <input class="form-control input-lg custom-filed" type="text"
-                            placeholder="Type Keyword" />
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="icon-select">
-                        <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M9 9.5C9.825 9.5 10.5 8.825 10.5 8C10.5 7.175 9.825 6.5 9 6.5C8.175 6.5 7.5 7.175 7.5 8C7.5 8.825 8.175 9.5 9 9.5ZM9 2C12.15 2 15 4.415 15 8.15C15 10.535 13.1625 13.34 9.495 16.5725C9.21 16.82 8.7825 16.82 8.4975 16.5725C4.8375 13.34 3 10.535 3 8.15C3 4.415 5.85 2 9 2Z"
-                                fill="#B5C1D7" />
-                        </svg>
-                        <select class="form-control input-lg">
-                            <option value="option-1">Geo Location</option>
-                            <option value="option-2">Option 2</option>
-                            <option value="option-3">Option 3</option>
-                        </select>
-                        <i class="fa fa-chevron-down"></i>
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <div class="icon-select">
-                        <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M8.25 11.0465V15.5H9.75V11.0465C12.7095 11.4155 15 13.94 15 17H3C3.00002 15.5385 3.53339 14.1273 4.5 13.0312C5.46661 11.9351 6.80002 11.2293 8.25 11.0465V11.0465ZM9 10.25C6.51375 10.25 4.5 8.23625 4.5 5.75C4.5 3.26375 6.51375 1.25 9 1.25C11.4863 1.25 13.5 3.26375 13.5 5.75C13.5 8.23625 11.4863 10.25 9 10.25Z"
-                                fill="#B5C1D7" />
-                        </svg>
-
-                        <select class="form-control input-lg">
-
-                            <option value="option-1">Search user</option>
-                            <option value="option-2">Option 2</option>
-                            <option value="option-3">Option 3</option>
-                        </select>
-                        <i class="fa fa-chevron-down"></i>
-                    </div>
-
-                </div>
-                <div class="mb-3">
-
-
-                    <div class="icon-select">
-                        <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M11.25 8.75V4.25L9 2L6.75 4.25V5.75H2.25V16.25H15.75V8.75H11.25ZM5.25 14.75H3.75V13.25H5.25V14.75ZM5.25 11.75H3.75V10.25H5.25V11.75ZM5.25 8.75H3.75V7.25H5.25V8.75ZM9.75 14.75H8.25V13.25H9.75V14.75ZM9.75 11.75H8.25V10.25H9.75V11.75ZM9.75 8.75H8.25V7.25H9.75V8.75ZM9.75 5.75H8.25V4.25H9.75V5.75ZM14.25 14.75H12.75V13.25H14.25V14.75ZM14.25 11.75H12.75V10.25H14.25V11.75Z"
-                                fill="#B5C1D7" />
-                        </svg>
-                        <select class="form-control input-lg">
-                            <option value="option-1">Select city</option>
-                            <option value="option-2">Option 2</option>
-                            <option value="option-3">Option 3</option>
-                        </select>
-                        <i class="fa fa-chevron-down"></i>
-                    </div>
-                </div>
-                <div class=" mb-3">
-                    <div class="icon-select">
-                        <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M11.2169 12.173C13.2111 12.9665 14.6789 14.798 14.9534 17H3.04639C3.32089 14.798 4.78864 12.9665 6.78289 12.173L8.99989 15.5L11.2169 12.173ZM13.4999 2V6.5C13.4999 8.9855 11.4854 11 8.99989 11C6.51439 11 4.49989 8.9855 4.49989 6.5V2H13.4999ZM11.9999 6.5H5.99989C5.99989 8.1575 7.34239 9.5 8.99989 9.5C10.6574 9.5 11.9999 8.1575 11.9999 6.5Z"
-                                fill="#B5C1D7" />
-                        </svg>
-                        <select class="form-control input-lg">
-                            <option value="option-1">Doctor</option>
-                            <option value="option-2">Option 2</option>
-                            <option value="option-3">Option 3</option>
-                        </select>
-                        <i class="fa fa-chevron-down"></i>
-                    </div>
-
-                </div>
-                <div >
-                    <button class="btn btn-dignis-0">
-                        Search
-                        <div class="icon-class">
-                            <i class="fas fa-search ml-2"></i>
+            <div class="col-sm-3">
+                <div class="option-card">
+                    <h4>Refine Search</h4>
+                    <div class="mb-3">
+                        <div class="icon-select">
+                            <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M15 17H3C2.80109 17 2.61032 16.921 2.46967 16.7803C2.32902 16.6397 2.25 16.4489 2.25 16.25V2.75C2.25 2.55109 2.32902 2.36032 2.46967 2.21967C2.61032 2.07902 2.80109 2 3 2H15C15.1989 2 15.3897 2.07902 15.5303 2.21967C15.671 2.36032 15.75 2.55109 15.75 2.75V16.25C15.75 16.4489 15.671 16.6397 15.5303 16.7803C15.3897 16.921 15.1989 17 15 17ZM6 5.75V7.25H12V5.75H6ZM6 8.75V10.25H12V8.75H6ZM6 11.75V13.25H9.75V11.75H6Z"
+                                    fill="#B5C1D7" />
+                            </svg>
+                            <input class="form-control input-lg custom-filed" type="text" name="keyword" value="@if(!empty(Request::get('keyword'))) {{Request::get('keyword')}} @endif"
+                                placeholder="Type Keyword" />
                         </div>
-                    </button>
+                    </div>
+                    <div class="mb-3">
+                        <div class="icon-select">
+                            <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M9 9.5C9.825 9.5 10.5 8.825 10.5 8C10.5 7.175 9.825 6.5 9 6.5C8.175 6.5 7.5 7.175 7.5 8C7.5 8.825 8.175 9.5 9 9.5ZM9 2C12.15 2 15 4.415 15 8.15C15 10.535 13.1625 13.34 9.495 16.5725C9.21 16.82 8.7825 16.82 8.4975 16.5725C4.8375 13.34 3 10.535 3 8.15C3 4.415 5.85 2 9 2Z"
+                                    fill="#B5C1D7" />
+                            </svg>
+                            <input class="form-control input-lg custom-filed" type="text" name="location" value="@if(!empty(Request::get('location'))) {{Request::get('location')}} @endif"
+                                placeholder="Enter Loation." />
+                        </div>
+                    </div>
+                    <div class=" mb-3">
+                        <div class="icon-select">
+                            <svg width="18" height="19" viewBox="0 0 18 19" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M11.2169 12.173C13.2111 12.9665 14.6789 14.798 14.9534 17H3.04639C3.32089 14.798 4.78864 12.9665 6.78289 12.173L8.99989 15.5L11.2169 12.173ZM13.4999 2V6.5C13.4999 8.9855 11.4854 11 8.99989 11C6.51439 11 4.49989 8.9855 4.49989 6.5V2H13.4999ZM11.9999 6.5H5.99989C5.99989 8.1575 7.34239 9.5 8.99989 9.5C10.6574 9.5 11.9999 8.1575 11.9999 6.5Z"
+                                    fill="#B5C1D7" />
+                            </svg>
+                            <select class="form-control input-lg" name="hospital_id">
+                                <option value="">All Hospital</option>
+                                @foreach($hospital_list as $row)
+                                   <option value="{{$row->id}}}" @if(!empty(Request::get('hospital_id')) && (Request::get('hospital_id')==$row->id)) selected @endif>{{$row->name}}</option>
+                                @endforeach
+                            </select>
+                            <i class="fa fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div >
+                        <button type="submit" class="btn btn-dignis-0">
+                            Search
+                            <div class="icon-class">
+                                <i class="fas fa-search ml-2"></i>
+                            </div>
+                        </button>
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
         <div class="col-sm-9">
             <div class="col-sm-12 p-0">
                 <div class="option-card mb-3">
@@ -198,7 +159,7 @@
                         <div class="fint-talentmain">
                             <div>
                                 <div class="row">
-                                    @foreach($hospitals as $row)
+                                    @forelse($hospitals as $row)
                                     <div class="col-sm-12 mb-4 p-0">
                                         <div>
                                             <div class="bg-white doctor-dir">
@@ -265,11 +226,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @endforeach
+                                    @empty
+                                    <div class="col-sm-12 mb-4 p-0" style="text-align: center;color:red;">
+                                        <p >No hospital found.</p>
+                                    </div>
+                                    @endforelse
                                 </div>                               
                                 <div class="">
                                     <nav aria-label="Page navigation example">
-                                        @include('frontend.layouts.pagination',['paginator' => $hospitals])
+                                        @include('frontend.layouts.pagination',['paginator' => $hospitals,'params'=>request()->except('page')])
                                     </nav>
                                 </div>
                             </div>
@@ -279,7 +244,7 @@
                         <div class="fint-talentmain">
                             <div>
                                 <div class="row">
-                                    @foreach($hospitals as $row)
+                                    @forelse($hospitals as $row)
                                     <div class="col-sm-4 mb-4">
                                         <div>
                                             <div class="bg-white doctor-dir">
@@ -319,11 +284,15 @@
                                             </div>
                                         </div>
                                     </div>
-                                    @endforeach
+                                    @empty
+                                    <div class="col-sm-12 mb-4 p-0" style="text-align: center;color:red;">
+                                        <p >No hospital found.</p>
+                                    </div>
+                                    @endforelse
                                 </div>
                                 <div class="">
                                     <nav aria-label="Page navigation example">
-                                        @include('frontend.layouts.pagination',['paginator' => $hospitals])
+                                        @include('frontend.layouts.pagination',['paginator' => $hospitals,'params'=>request()->except('page')])
                                     </nav>
                                 </div>
                             </div>

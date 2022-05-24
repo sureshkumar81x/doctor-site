@@ -50,13 +50,12 @@
                             <i class="fas fa-chevron-down  dropdown-icon"></i>
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">1</a>
-                            <a class="dropdown-item" href="#">2</a>
-                            <a class="dropdown-item" href="#">3</a>
+                            <a class="dropdown-item" href="{{route('diagnostics')}}">Diagnostics</a>
+                            <a class="dropdown-item" href="{{route('hospitals')}}">Hospitals</a>
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Find Doctors</a>
+                        <a class="nav-link" href="{{route('doctors')}}">Find Doctors</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link " href="#">About Us</a>
