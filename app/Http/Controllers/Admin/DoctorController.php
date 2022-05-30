@@ -61,7 +61,7 @@ class DoctorController extends Controller
             ];
             $this->validate($request, [
                 'category_id' => 'required',
-                'subcategory_id' => 'required',
+                // 'subcategory_id' => 'required',
                 'name' => 'required',
                 'phone' => 'required',
                 'address' => 'required',
@@ -96,7 +96,7 @@ class DoctorController extends Controller
         ];
         $this->validate($request, [
             'category_id' => 'required',
-            'subcategory_id' => 'required',
+            // 'subcategory_id' => 'required',
             'name' => 'required',
             'phone' => 'required',
             'address' => 'required',

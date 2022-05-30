@@ -140,82 +140,27 @@
                         Centers</h1>
                 </div>
                 <div class="row ">
+                    @foreach($digoCat as $row)
                     <div class="col-sm-6">
                         <div class="cards">
                             <div>
-                                <img src="{{ asset('/') }}/frontendtheme/images/1.png" alt="">
+                                <img src="{{ asset('/') }}/uploads/category/{{$row->image}}" alt="">
                                 <div class="row">
                                     <div class="col-9 p-0">
-                                        <p class="text-white digoniis-para">Blood Test</p>
+                                        <p class="text-white digoniis-para">{{$row->name}}</p>
                                     </div>
                                     <div class="col-2 text-right p-0">
-                                        <div class="icon-class">
-                                            <i class="fas fa-chevron-right"></i>
-                                        </div>
+                                        <a href="{{url('diagnostics')}}?category_id={{$row->id}}">
+                                            <div class="icon-class">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                        </a>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-6">
-                        <div class="cards">
-                            <div>
-                                <img src="{{ asset('/') }}/frontendtheme/images/4.png" alt="">
-                                <div class="row">
-                                    <div class="col-9 p-0">
-                                        <p class="text-white digoniis-para">ECG</p>
-                                    </div>
-                                    <div class="col-2 text-right p-0">
-                                        <div class="icon-class">
-                                            <i class="fas fa-chevron-right"></i>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="cards">
-                            <div>
-                                <img src="{{ asset('/') }}/frontendtheme/images/3.png" alt="">
-                                <div class="row">
-                                    <div class="col-9 p-0">
-                                        <p class="text-white digoniis-para">MRI</p>
-                                    </div>
-                                    <div class="col-2 text-right p-0">
-                                        <div class="icon-class">
-                                            <i class="fas fa-chevron-right"></i>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="cards">
-                            <div>
-                                <img src="{{ asset('/') }}/frontendtheme/images/2.png" alt="">
-                                <div class="row">
-                                    <div class="col-9 p-0">
-                                        <p class="text-white digoniis-para">BP Test</p>
-                                    </div>
-                                    <div class="col-2 text-right p-0">
-                                        <div class="icon-class">
-                                            <i class="fas fa-chevron-right"></i>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </div>
@@ -232,82 +177,27 @@
                     <h1 class="head-main-3">Doctors</h1>
                 </div>
                 <div class="row ">
-                    <div class="col-sm-6">
-                        <div class="cards-1">
-                            <div>
-                                <img src="{{ asset('/') }}/frontendtheme/images/5.png" alt="">
-                                <div class="row">
-                                    <div class="col-9 p-0">
-                                        <p class="doctos-p">Dermotoglost</p>
-                                    </div>
-                                    <div class="col-2 text-right p-0">
-                                        <div class="icon-class">
-                                            <i class="fas fa-chevron-right"></i>
+                    @foreach($doctorCat as $row)
+                        <div class="col-sm-6">
+                            <div class="cards-1">
+                                <div>
+                                    <img src="{{ asset('/') }}/uploads/category/{{$row->image}}" alt="">
+                                    <div class="row">
+                                        <div class="col-9 p-0">
+                                            <p class="doctos-p">{{$row->name}}</p>
+                                        </div>
+                                        <div class="col-2 text-right p-0">
+                                        <a href="{{url('doctors')}}?category_id={{$row->id}}">
+                                            <div class="icon-class">
+                                                <i class="fas fa-chevron-right"></i>
+                                            </div>
+                                         </a>
                                         </div>
                                     </div>
-
-
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="cards-1">
-                            <div>
-                                <img src="{{ asset('/') }}/frontendtheme/images/6.png" alt="">
-                                <div class="row">
-                                    <div class="col-9 p-0">
-                                        <p class="doctos-p">Cardio</p>
-                                    </div>
-                                    <div class="col-2 text-right p-0">
-                                        <div class="icon-class">
-                                            <i class="fas fa-chevron-right"></i>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="cards-1">
-                            <div>
-                                <img src="{{ asset('/') }}/frontendtheme/images/7.png" alt="">
-                                <div class="row">
-                                    <div class="col-9 p-0">
-                                        <p class="doctos-p">Bones</p>
-                                    </div>
-                                    <div class="col-2 text-right p-0">
-                                        <div class="icon-class">
-                                            <i class="fas fa-chevron-right"></i>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="cards-1">
-                            <div>
-                                <img src="{{ asset('/') }}/frontendtheme/images/8.png" alt="">
-                                <div class="row">
-                                    <div class="col-9 p-0">
-                                        <p class="doctos-p">So on</p>
-                                    </div>
-                                    <div class="col-2 text-right p-0">
-                                        <div class="icon-class">
-                                            <i class="fas fa-chevron-right"></i>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="col-sm-7">

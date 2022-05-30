@@ -29,7 +29,7 @@
                                 </div>
                             @endif
                             <form class="form-horizontal" action="{{route('admin::updateSubCategory',$info->id)}}"
-                                  method="post">
+                                  method="post" enctype="multipart/form-data">
                                 <div class="card-body">
                                     {{csrf_field()}}
                                     <div class="form-group">
@@ -37,6 +37,18 @@
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" name="name"
                                                    value="{{$info->name}}"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">SubCategory Previous Image</label>
+                                        <div class="col-md-6">
+                                            <img src="{{url('/')}}/uploads/category/{{$info->image}}" width="100px" height="100px" alt="no image" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">SubCategory Image</label>
+                                        <div class="col-md-6">
+                                            <input type="file" class="form-control" name="image"/>
                                         </div>
                                     </div>
                                 </div>

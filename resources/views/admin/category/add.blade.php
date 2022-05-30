@@ -28,7 +28,7 @@
                                     <strong>{{Session::get('success')}}</strong>
                                 </div>
                             @endif
-                            <form class="form-horizontal" action="{{route('admin::saveCategory')}}" method="post">
+                            <form class="form-horizontal" action="{{route('admin::saveCategory')}}" method="post" enctype="multipart/form-data">
                                 <div class="card-body">
                                     {{csrf_field()}}
                                     <div class="form-group">
@@ -36,6 +36,12 @@
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" name="name"
                                                    placeholder="Enter Category Name"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Category Image</label>
+                                        <div class="col-md-6">
+                                            <input type="file" class="form-control" name="image"/>
                                         </div>
                                     </div>
                                 </div>

@@ -55,13 +55,20 @@ class CategoriesController extends Controller
            // dd($request->all());
             $msg = [
                 'name.required' => 'Enter Category  Name',
+                'image.required' => 'Select image.',
             ];
             $this->validate($request, [
                 'name' => 'required',
+                'image' => 'required',
             ], $msg);
             $name = $request->get('name');
+            $image = $request->file('image');
+            $imageName =  rand(111111,99999) . '_' .time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('uploads/category');
+            $image->move($destinationPath,$imageName);
             CategoriesModel::create([
                 'name' => $name,
+                'image' =>$imageName,
                 'status' => 'Active'
             ]);
             return redirect()->back()->with('success','Category Added Successfully !!!');
@@ -80,8 +87,20 @@ class CategoriesController extends Controller
             'name' => 'required',
         ], $msg);
         $name = $request->get('name');
+        $imageName = CategoriesModel::where('id',$id)->value('image');
+        if($request->hasFile('image')){
+            $destinationPath = public_path('uploads/category');
+            $file = $destinationPath.'/'.$imageName;
+            if($imageName!="" && file_exists($file)){
+                unlink($file);
+            }
+            $image = $request->file('image');
+            $imageName =  rand(111111,99999) . '_' .time().'.'.$image->getClientOriginalExtension();
+            $image->move($destinationPath,$imageName);
+        }
         CategoriesModel:: where('id',$id)->update([
-            'name' => $name
+            'name' => $name,
+            'image' =>$imageName
         ]);
 
         return redirect()->back()->with('success', 'Category Updated Successfully !!!');
@@ -115,6 +134,12 @@ class CategoriesController extends Controller
 
     public function delete($id)
     {
+        $image = CategoriesModel::where('id',$id)->value('image');
+        $destinationPath = public_path('uploads/category');
+        $file = $destinationPath.'/'.$image;
+        if($image!='' && file_exists($file)){
+            unlink($file);
+        }
         CategoriesModel:: where('id', $id)->delete();
         return redirect()->back()->with('success', 'Categories Deleted Successfully !!!');
     }
@@ -159,18 +184,24 @@ class CategoriesController extends Controller
     }
     public function saveSubCategory(Request $request)
         {
-           // dd($request->all());
             $msg = [
-                'name.required' => 'Enter Subcategory  Name',
+                'name.required' => 'Enter Category  Name',
+                'image.required' => 'Select image.',
             ];
             $this->validate($request, [
                 'name' => 'required',
+                'image' => 'required',
             ], $msg);
             $name = $request->get('name');
             $category_id = $request->get('category_id');
+            $image = $request->file('image');
+            $imageName =  rand(111111,99999) . '_' .time().'.'.$image->getClientOriginalExtension();
+            $destinationPath = public_path('uploads/category');
+            $image->move($destinationPath,$imageName);
             SubcategoriesModel::create([
                 'name' => $name,
                 'category_id' => $category_id,
+                'image' =>$imageName,
                 'status' => 'Active'
             ]);
             return redirect()->back()->with('success','Subcategory Added Successfully !!!');
@@ -189,8 +220,20 @@ class CategoriesController extends Controller
             'name' => 'required',
         ], $msg);
         $name = $request->get('name');
+        $imageName = CategoriesModel::where('id',$id)->value('image');
+        if($request->hasFile('image')){
+            $destinationPath = public_path('uploads/category');
+            $file = $destinationPath.'/'.$imageName;
+            if($imageName!="" && file_exists($file)){
+                unlink($file);
+            }
+            $image = $request->file('image');
+            $imageName =  rand(111111,99999) . '_' .time().'.'.$image->getClientOriginalExtension();
+            $image->move($destinationPath,$imageName);
+        }
         SubcategoriesModel:: where('id',$id)->update([
-            'name' => $name
+            'name' => $name,
+            'image' => $imageName
         ]);
 
         return redirect()->back()->with('success', 'Subcategory Updated Successfully !!!');
@@ -224,6 +267,12 @@ class CategoriesController extends Controller
 
     public function deleteSubCategory($id)
     {
+        $image = SubcategoriesModel::where('id',$id)->value('image');
+        $destinationPath = public_path('uploads/category');
+        $file = $destinationPath.'/'.$image;
+        if($image!='' && file_exists($file)){
+            unlink($file);
+        }
         SubcategoriesModel:: where('id', $id)->delete();
         return redirect()->back()->with('success', 'Subcategories Deleted Successfully !!!');
     }

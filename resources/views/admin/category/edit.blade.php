@@ -28,7 +28,7 @@
                                     <strong>{{Session::get('success')}}</strong>
                                 </div>
                             @endif
-                            <form class="form-horizontal" action="{{route('admin::updateCategory',$info->id)}}"
+                            <form class="form-horizontal" action="{{route('admin::updateCategory',$info->id)}}" enctype="multipart/form-data"
                                   method="post">
                                 <div class="card-body">
                                     {{csrf_field()}}
@@ -37,6 +37,18 @@
                                         <div class="col-md-6">
                                             <input type="text" class="form-control" name="name"
                                                    value="{{$info->name}}"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Category Previous Image</label>
+                                        <div class="col-md-6">
+                                            <img src="{{url('/')}}/uploads/category/{{$info->image}}" width="100px" height="100px" alt="no image" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Category Image</label>
+                                        <div class="col-md-6">
+                                            <input type="file" class="form-control" name="image"/>
                                         </div>
                                     </div>
                                 </div>

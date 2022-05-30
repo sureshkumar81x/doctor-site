@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Frontend;
 
+use App\CategoriesModel;
 use App\DiagnosticCenterModel;
 use App\DoctorsModel;
 use App\HospitalsModel;
@@ -21,7 +22,9 @@ class PageController extends Controller
         $doctors = DoctorsModel::where("status","Active")->take(24)->get();
         $trust_us = PageContentModel::where('key','trust-us')->where('page','home')->first();
         $trust_us_list = PageContentModel::where('key','trust-us-list')->where('page','home')->get();
-        return view('frontend.pages.index',compact('top_text','book_free',
+        $doctorCat = CategoriesModel::whereHas('getDoctors')->where('status','Active')->inRandomOrder()->take(4)->get();
+        $digoCat = CategoriesModel::whereHas('getDiagnostics')->where('status','Active')->inRandomOrder()->take(4)->get();
+        return view('frontend.pages.index',compact('top_text','book_free','doctorCat','digoCat',
         'banner_image','get_in_touch_image','doctor_image','medicals','doctors','trust_us','trust_us_list'));
     }
     public function doctors(Request $request){
@@ -34,6 +37,9 @@ class PageController extends Controller
         }
         if(!empty($request->get('doctor_id'))){
             $doctors->where('id',$request->get('doctor_id'));
+        }
+        if(!empty($request->get('category_id'))){
+            $doctors->where('category_id',$request->get('category_id'));
         }
         $doctors = $doctors->paginate(6);
         $doctor_list = DoctorsModel::where('status','Active')->get();
@@ -50,6 +56,9 @@ class PageController extends Controller
         if(!empty($request->get('hospital_id'))){
             $hospitals->where('id',$request->get('hospital_id'));
         }
+        if(!empty($request->get('category_id'))){
+            $hospitals->where('category_id',$request->get('category_id'));
+        }
         $hospitals = $hospitals->paginate(6);  
         $hospital_list = HospitalsModel::where('status','Active')->get();
         return view('frontend.pages.hospital-list',compact('hospitals','hospital_list'));
@@ -64,6 +73,9 @@ class PageController extends Controller
         }
         if(!empty($request->get('diagnostic_id'))){
             $diagnostics->where('id',$request->get('diagnostic_id'));
+        }
+        if(!empty($request->get('category_id'))){
+            $diagnostics->where('category_id',$request->get('category_id'));
         }
         $diagnostics = $diagnostics->paginate(6);  
         $diagnostic_list = DiagnosticCenterModel::where('status','Active')->get();
