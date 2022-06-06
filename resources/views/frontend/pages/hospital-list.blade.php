@@ -197,7 +197,7 @@
                                                         <div>
                                                             <div>
                                                                 <img class="img-review"
-                                                                    src="{{ asset('/') }}uploads/hospital/{{$row->image}}" alt="">
+                                                                    src="{{ asset('/') }}uploads/hospital/{{empty($row->image)? 'no-image.png' : $row->image}}" alt="">
                                                             </div>
                                                             <div>
                                                                 <h6 class="star-review-1"><span
@@ -250,7 +250,7 @@
                                             <div class="bg-white doctor-dir">
                                                 <div>
                                                     <div>
-                                                        <img src="{{asset('/')}}uploads/hospital/{{$row->image}}" alt="">
+                                                        <img src="{{asset('/')}}uploads/hospital/{{empty($row->image)? 'no-image.png' : $row->image}}" alt="">
                                                     </div>
                                                     <div>
                                                         <h6 class="star-review"><span

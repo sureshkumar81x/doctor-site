@@ -52,28 +52,27 @@ class DiagnosticController extends Controller
            // dd($request->all());
             $msg = [
                 'category_id.required' => 'Select category',
-                'subcategory_id.required' => 'Select subcategory',
                 'name.required' => 'Enter Name',
                 'phone.required' => 'Enter Phone',
                 'address.required' => 'Enter Address',
                 'description.required' => 'Enter Description',
-                'image.required' => 'Select image.',
             ];
             $this->validate($request, [
                 'category_id' => 'required',
-                'subcategory_id' => 'required',
                 'name' => 'required',
                 'phone' => 'required',
                 'address' => 'required',
                 'description' => 'required',
-                'image' => 'required',
             ], $msg);
             $data = $request->except('_token','image');
-            $image = $request->file('image');
-            $imageName =  rand(111111,99999) . '_' .time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('uploads/diagnostic');
-            $image->move($destinationPath,$imageName);
-            $data['image']=$imageName;
+            $data['image']=null;
+            if($request->hasFile('image')){
+                $image = $request->file('image');
+                $imageName =  rand(111111,99999) . '_' .time().'.'.$image->getClientOriginalExtension();
+                $destinationPath = public_path('uploads/diagnostic');
+                $image->move($destinationPath,$imageName);
+                $data['image']=$imageName;
+            }
             DiagnosticCenterModel::create($data);
             return redirect()->back()->with('success','Diagnostic Added Successfully !!!');
         }
@@ -88,7 +87,6 @@ class DiagnosticController extends Controller
     {
         $msg = [
             'category_id.required' => 'Select category',
-            'subcategory_id.required' => 'Select subcategory',
             'name.required' => 'Enter Name',
             'phone.required' => 'Enter Phone',
             'address.required' => 'Enter Address',
@@ -96,7 +94,6 @@ class DiagnosticController extends Controller
         ];
         $this->validate($request, [
             'category_id' => 'required',
-            'subcategory_id' => 'required',
             'name' => 'required',
             'phone' => 'required',
             'address' => 'required',

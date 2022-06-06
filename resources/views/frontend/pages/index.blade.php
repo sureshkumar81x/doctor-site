@@ -345,7 +345,7 @@
                                         <div class="bg-white p-3 doctor-dir">
                                             <div>
                                                 <div>
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/review-doc.png"
+                                                    <img src="{{ asset('/') }}uploads/doctor/{{empty($doc->profile_image)? 'no-image.png' : $doc->profile_image}}"
                                                         alt="">
                                                 </div>
                                                 <div>

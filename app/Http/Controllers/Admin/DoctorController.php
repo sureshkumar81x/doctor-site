@@ -57,7 +57,6 @@ class DoctorController extends Controller
                 'phone.required' => 'Enter Phone',
                 'address.required' => 'Enter Address',
                 'description.required' => 'Enter Description',
-                'profile_image.required' => 'Select image.',
             ];
             $this->validate($request, [
                 'category_id' => 'required',
@@ -66,14 +65,16 @@ class DoctorController extends Controller
                 'phone' => 'required',
                 'address' => 'required',
                 'description' => 'required',
-                'profile_image' => 'required',
             ], $msg);
             $data = $request->except('_token','profile_image');
-            $image = $request->file('profile_image');
-            $imageName =  rand(111111,99999) . '_' .time().'.'.$image->getClientOriginalExtension();
-            $destinationPath = public_path('uploads/doctor');
-            $image->move($destinationPath,$imageName);
-            $data['profile_image']=$imageName;
+            $data['profile_image']=null;
+            if($request->hasFile('image')){
+                $image = $request->file('profile_image');
+                $imageName =  rand(111111,99999) . '_' .time().'.'.$image->getClientOriginalExtension();
+                $destinationPath = public_path('uploads/doctor');
+                $image->move($destinationPath,$imageName);
+                $data['profile_image']=$imageName;
+            }
             DoctorsModel::create($data);
             return redirect()->back()->with('success','Doctor Added Successfully !!!');
         }

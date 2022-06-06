@@ -18,8 +18,8 @@ class PageController extends Controller
         $book_free = PageContentModel::where('key','book-free')->where('page','home')->get();
         $get_in_touch_image = PageContentModel::where('key','get-in-touch-image')->where('page','home')->value('image');
         $doctor_image = PageContentModel::where('key','doctor-image')->where('page','home')->value('image');
-        $medicals = HospitalsModel::where("status","Active")->take(18)->get();
-        $doctors = DoctorsModel::where("status","Active")->take(24)->get();
+        $medicals = HospitalsModel::where("status","Active")->take(18)->orderBy('id','DESC')->get();
+        $doctors = DoctorsModel::where("status","Active")->take(24)->orderBy('id','DESC')->get();
         $trust_us = PageContentModel::where('key','trust-us')->where('page','home')->first();
         $trust_us_list = PageContentModel::where('key','trust-us-list')->where('page','home')->get();
         $doctorCat = CategoriesModel::whereHas('getDoctors')->where('status','Active')->inRandomOrder()->take(4)->get();
@@ -41,7 +41,7 @@ class PageController extends Controller
         if(!empty($request->get('category_id'))){
             $doctors->where('category_id',$request->get('category_id'));
         }
-        $doctors = $doctors->paginate(6);
+        $doctors = $doctors->orderBy('id','DESC')->paginate(6);
         $doctor_list = DoctorsModel::where('status','Active')->get();
         return view('frontend.pages.doctor-list',compact('doctors','doctor_list'));
     }
@@ -59,7 +59,7 @@ class PageController extends Controller
         if(!empty($request->get('category_id'))){
             $hospitals->where('category_id',$request->get('category_id'));
         }
-        $hospitals = $hospitals->paginate(6);  
+        $hospitals = $hospitals->orderBy('id','DESC')->paginate(6);  
         $hospital_list = HospitalsModel::where('status','Active')->get();
         return view('frontend.pages.hospital-list',compact('hospitals','hospital_list'));
     }
@@ -77,7 +77,7 @@ class PageController extends Controller
         if(!empty($request->get('category_id'))){
             $diagnostics->where('category_id',$request->get('category_id'));
         }
-        $diagnostics = $diagnostics->paginate(6);  
+        $diagnostics = $diagnostics->orderBy('id','DESC')->paginate(6);  
         $diagnostic_list = DiagnosticCenterModel::where('status','Active')->get();
         return view('frontend.pages.diagnostic-list',compact('diagnostics','diagnostic_list'));
     }
