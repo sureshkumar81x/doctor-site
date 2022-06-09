@@ -11,8 +11,11 @@ Route::get('logout','Admin\AdminController@logout')->name('adminLogout');
  */
 Route::get('/','Frontend\PageController@index')->name('home');
 Route::get('/doctors','Frontend\PageController@doctors')->name('doctors');
+Route::get('/doctor-details/{id}','Frontend\PageController@doctorDetails')->name('doctorDetails');
 Route::get('/hospitals','Frontend\PageController@hospitals')->name('hospitals');
+Route::get('/hospital-details/{id}','Frontend\PageController@hospitalDetails')->name('hospitalDetails');
 Route::get('/diagnostics','Frontend\PageController@diagnostics')->name('diagnostics');
+Route::get('/diagnostic-deails/{id}','Frontend\PageController@diagnosticDetails')->name('diagnosticDetails');
 
 
 

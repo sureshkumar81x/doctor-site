@@ -45,6 +45,9 @@ class PageController extends Controller
         $doctor_list = DoctorsModel::where('status','Active')->get();
         return view('frontend.pages.doctor-list',compact('doctors','doctor_list'));
     }
+    public function doctorDetails($id){
+        return view('frontend.pages.doctor-details');
+    }
     public function hospitals(Request $request){
         $hospitals = HospitalsModel::where('status','Active');
         if(!empty($request->get('keyword'))){
@@ -63,6 +66,9 @@ class PageController extends Controller
         $hospital_list = HospitalsModel::where('status','Active')->get();
         return view('frontend.pages.hospital-list',compact('hospitals','hospital_list'));
     }
+    public function hospitalDetails($id){
+        return view('frontend.pages.hospital-details');
+    }
     public function diagnostics(Request $request){
         $diagnostics = DiagnosticCenterModel::where('status','Active');
         if(!empty($request->get('keyword'))){
@@ -80,5 +86,8 @@ class PageController extends Controller
         $diagnostics = $diagnostics->orderBy('id','DESC')->paginate(6);  
         $diagnostic_list = DiagnosticCenterModel::where('status','Active')->get();
         return view('frontend.pages.diagnostic-list',compact('diagnostics','diagnostic_list'));
+    }
+    public function diagnosticDetails($id){
+        return view('frontend.pages.diagnostic-details');
     }
 }

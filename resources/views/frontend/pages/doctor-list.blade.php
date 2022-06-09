@@ -195,10 +195,12 @@
                                                     </div>
                                                     <div class="col-sm-4 p-0">
                                                         <div>
+                                                            <a href="{{route('doctorDetails',$row->id)}}">
                                                             <div>
                                                                 <img class="img-review"
                                                                     src="{{ asset('/') }}uploads/doctor/{{empty($row->profile_image)? 'no-image.png' : $row->profile_image}}" alt="">
                                                             </div>
+                                                            </a>
                                                             <div>
                                                                 <h6 class="star-review-1"><span
                                                                         class="fas fa-star checked"></span>
@@ -245,9 +247,11 @@
                                         <div>
                                             <div class="bg-white doctor-dir">
                                                 <div>
+                                                <a href="{{route('doctorDetails',$row->id)}}">
                                                     <div>
                                                         <img src="{{ asset('/') }}uploads/doctor/{{empty($row->profile_image)? 'no-image.png' : $row->profile_image}}" alt="">
                                                     </div>
+                                                </a>
                                                     <div>
                                                         <h6 class="star-review"><span
                                                                 class="fas fa-star checked"></span>

@@ -231,6 +231,7 @@
                                 <div class="border  rounded-lg p-2">
                                     <div class="row">
                                         <div class="col-8 p-0 pl-3 pt-3">
+                                            <a href="{{route('hospitalDetails',$row->id)}}">
                                             <div class="row mb-2">
                                                 <div class="col-2 p-0">
                                                     <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
@@ -241,6 +242,7 @@
                                                     <p class="sub-para">Medical Centers</p>
                                                 </div>
                                             </div>
+                                             </a>
 
                                             <div class="row mb-2">
                                                 <div class="col-sm-6 p-0">
@@ -344,6 +346,7 @@
                                     <div>
                                         <div class="bg-white p-3 doctor-dir">
                                             <div>
+                                                <a href="{{route('doctorDetails',$doc->id)}}">
                                                 <div>
                                                     <img src="{{ asset('/') }}uploads/doctor/{{empty($doc->profile_image)? 'no-image.png' : $doc->profile_image}}"
                                                         alt="">
@@ -352,7 +355,7 @@
                                                     <h6 class="star-review"><span class="fas fa-star checked"></span>
                                                         {{$doc->avg_rating}}</h6>
                                                 </div>
-
+                                                </a>
                                             </div>
 
                                             <div>
