@@ -9,7 +9,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('/')}}admintheme/plugins/fontawesome-free/css/all.min.css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="{{asset('/')}}admintheme/https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="{{asset('/')}}admintheme/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
     <!-- iCheck -->
@@ -57,6 +57,24 @@
 {{--<script src="{{asset('/')}}admintheme/dist/js/demo.js"></script>--}}
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 {{--<script src="{{asset('/')}}admintheme/dist/js/pages/dashboard.js"></script>--}}
+<script>
+    $(document).ready(function() {
+        $('.number').keypress(function (event) {
+            return isNumber(event, this)
+        });
+        $(".summernote").summernote({
+            height: 200,
+        });
+    });
+    function isNumber(evt, element) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if ((charCode != 45 || $(element).val().indexOf('-') != -1) &&
+            (charCode != 46 || $(element).val().indexOf('.') != -1) &&
+            (charCode < 48 || charCode > 57))
+            return false;
+        return true;
+    }
+</script>
 @stack('scripts')
 </body>
 </html>

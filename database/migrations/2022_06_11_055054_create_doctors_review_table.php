@@ -14,6 +14,7 @@ class CreateDoctorsReviewTable extends Migration {
 			$table->longText('comments')->nullable();
 			$table->float('rating', 8,2)->default('0.00');
 			$table->enum('status', array('Active', 'Inactive'))->default('Active');
+			$table->timestamps();
 		});
 	}
 

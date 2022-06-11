@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use DataTables;
 use App\CategoriesModel;
+use App\HospitalsGallery;
 use App\HospitalsModel;
 use App\SubcategoriesModel;
 
@@ -20,6 +21,7 @@ class HospitalController extends Controller
                 ->addColumn('action', function ($data) {
                     $url_update = route('admin::editHospital', ['id' => $data->id]);
                     $url_delete = "'".route('admin::deleteHospital', ['id' => $data->id])."'";
+                    $url_gallery = route('admin::hospitalGallery', ['id' => $data->id]);
                     $edit='<span id="status_'.$data->id.'">';
                     if($data->status=='Active'){
                         $edit .='<a class="btn btn-xs btn-info"
@@ -33,7 +35,8 @@ class HospitalController extends Controller
                                          </a>';
                     }
                     $edit.='</span>&nbsp';
-                    $edit .= '<a href="' . $url_update . '" class="btn btn-xs btn-primary fancybox fancybox.iframe" title="Edit"><i class="fas fa-edit"></i></a>'.
+                    $edit .= '<a href="' . $url_update . '" class="btn btn-xs btn-primary fancybox fancybox.iframe" title="Edit"><i class="fas fa-edit"></i></a>&nbsp;';
+                    $edit .= '<a href="' . $url_gallery . '" class="btn btn-xs btn-info fancybox fancybox.iframe" title="Gallery"><i class="fas fa-image"></i></a>'.
                                         '&nbsp;<a data-toggle="modal" data-target="#confirmDelete"  class="btn btn-xs btn-danger" title="Delete" onclick="getDeleteRoute(' . $url_delete . ')"> <i class="fas fa-trash"></i></a>';
                     return $edit;
                 })
@@ -151,6 +154,38 @@ class HospitalController extends Controller
             unlink($file);
         }
         HospitalsModel:: where('id', $id)->delete();
-        return redirect()->back()->with('success', 'Categories Deleted Successfully !!!');
+        return redirect()->back()->with('success', 'Hospital Deleted Successfully !!!');
     }
+    public function gallery($id){
+        $images = HospitalsGallery::where('hospital_id',$id)->get();
+        return view('admin.hospital.gallery',compact('images','id'));
+     }
+     public function gallerySave(Request $request,$id)
+     {
+         $msg = [
+             'image.required' => 'Select image',
+         ];
+         $this->validate($request, [
+             'image' => 'required',
+         ], $msg);
+         $data['hospital_id']=$id;
+         $image = $request->file('image');
+         $imageName =  rand(111111,99999) . '_' .time().'.'.$image->getClientOriginalExtension();
+         $destinationPath = public_path('uploads/hospital');
+         $image->move($destinationPath,$imageName);
+         $data['image']=$imageName;
+         HospitalsGallery::create($data);
+         return redirect()->back()->with('success', 'Gallery image uploaded.');
+     }
+     public function galleryDelete($id)
+     {
+         $image = HospitalsGallery::where('id',$id)->value('image');
+         $destinationPath = public_path('uploads/hospital');
+         $file = $destinationPath.'/'.$image;
+         if(file_exists($file)){
+             unlink($file);
+         }
+         HospitalsGallery:: where('id', $id)->delete();
+         return redirect()->back()->with('success', 'Image Deleted Successfully !!!');
+     }
 }

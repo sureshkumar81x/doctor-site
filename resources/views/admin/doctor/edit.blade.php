@@ -63,7 +63,7 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Doctor Phone</label>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" name="phone" value="{{$info->phone}}"
+                                            <input type="text" class="form-control number" name="phone" value="{{$info->phone}}"
                                                    placeholder="Enter Doctor Phone"/>
                                         </div>
                                     </div>
@@ -79,6 +79,27 @@
                                         <div class="col-md-6">
                                             <textarea class="form-control" name="description"
                                                    placeholder="Enter Description">{{$info->description}}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Detail Description</label>
+                                        <div class="col-md-6">
+                                            <textarea class="form-control summernote" name="contents"
+                                                   placeholder="Enter Detail Description">{!!$info->contents!!}</textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Official Website</label>
+                                        <div class="col-md-6">
+                                            <input type="text" class="form-control" name="website" value="{{$info->website}}"
+                                                   placeholder="Enter Official Website"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="col-md-3 control-label">Working Hours</label>
+                                        <div class="col-md-6">
+                                            <textarea class="form-control" name="working_hours"
+                                                   placeholder="Enter Working Hours">{{$info->working_hours}}</textarea>
                                         </div>
                                     </div>
                                     <div class="form-group">

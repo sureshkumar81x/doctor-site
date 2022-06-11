@@ -9,6 +9,9 @@ use App\HospitalsModel;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\PageContentModel;
+use App\DoctorsReviewModel;
+use App\HospitalReviewModel;
+use App\DiagnosticReviewsModel;
 
 class PageController extends Controller
 {
@@ -46,7 +49,17 @@ class PageController extends Controller
         return view('frontend.pages.doctor-list',compact('doctors','doctor_list'));
     }
     public function doctorDetails($id){
-        return view('frontend.pages.doctor-details');
+        $info = DoctorsModel::where('id', $id)->first();
+        return view('frontend.pages.doctor-details',compact('info'));
+    }
+    public function doctorReviewSubmit(Request $request){
+        $data = $request->except('_token');
+        DoctorsReviewModel::create($data);
+        $avg = DoctorsReviewModel::where('doctor_id',$request->doctor_id)->avg('rating');
+        DoctorsModel::where("id",$request->doctor_id)->update([
+           "avg_rating"=>$avg
+        ]);
+        return redirect()->back()->with('success','Review submited successfully.');
     }
     public function hospitals(Request $request){
         $hospitals = HospitalsModel::where('status','Active');
@@ -67,7 +80,17 @@ class PageController extends Controller
         return view('frontend.pages.hospital-list',compact('hospitals','hospital_list'));
     }
     public function hospitalDetails($id){
-        return view('frontend.pages.hospital-details');
+        $info = HospitalsModel::where('id', $id)->first();
+        return view('frontend.pages.hospital-details',compact('info'));
+    }
+    public function hospitalReviewSubmit(Request $request){
+        $data = $request->except('_token');
+        HospitalReviewModel::create($data);
+        $avg = HospitalReviewModel::where('hospital_id',$request->hospital_id)->avg('rating');
+        HospitalsModel::where("id",$request->hospital_id)->update([
+           "avg_rating"=>$avg
+        ]);
+        return redirect()->back()->with('success','Review submited successfully.');
     }
     public function diagnostics(Request $request){
         $diagnostics = DiagnosticCenterModel::where('status','Active');
@@ -88,6 +111,16 @@ class PageController extends Controller
         return view('frontend.pages.diagnostic-list',compact('diagnostics','diagnostic_list'));
     }
     public function diagnosticDetails($id){
-        return view('frontend.pages.diagnostic-details');
+        $info = DiagnosticCenterModel::where('id', $id)->first();
+        return view('frontend.pages.diagnostic-details',compact('info'));
+    }
+    public function diagnosticReviewSubmit(Request $request){
+        $data = $request->except('_token');
+        DiagnosticReviewsModel::create($data);
+        $avg = DiagnosticReviewsModel::where('diagnostic_id',$request->diagnostic_id)->avg('rating');
+        DiagnosticCenterModel::where("id",$request->diagnostic_id)->update([
+           "avg_rating"=>$avg
+        ]);
+        return redirect()->back()->with('success','Review submited successfully.');
     }
 }

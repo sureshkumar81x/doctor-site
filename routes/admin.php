@@ -46,6 +46,10 @@ Route::group(['as'=>'admin::','prefix'=>'cpanel/admin','middleware' => ['web','A
      Route::post('update-doctor/{id}','Admin\DoctorController@update')->name('updateDoctor');
      Route::get('delete-doctor/{id}','Admin\DoctorController@delete')->name('deleteDoctor');
      Route::post('doctor-status/','Admin\DoctorController@status')->name('doctorStatus');
+
+     Route::get('doctor-gallery/{id}','Admin\DoctorController@gallery')->name('doctorGallery');
+     Route::post('doctor-gallery-save/{id}','Admin\DoctorController@gallerySave')->name('doctorGallerySave');
+     Route::get('doctor-gallery-delete/{id}','Admin\DoctorController@galleryDelete')->name('doctorGalleryDelete');
      /* Doctor route end*/
      /* Diagnostic route start*/
      Route::get('manage-diagnostic','Admin\DiagnosticController@index')->name('manageDiagnostic');
@@ -55,6 +59,10 @@ Route::group(['as'=>'admin::','prefix'=>'cpanel/admin','middleware' => ['web','A
      Route::post('update-diagnostic/{id}','Admin\DiagnosticController@update')->name('updateDiagnostic');
      Route::get('delete-diagnostic/{id}','Admin\DiagnosticController@delete')->name('deleteDiagnostic');
      Route::post('diagnostic-status/','Admin\DiagnosticController@status')->name('diagnosticStatus');
+
+     Route::get('diagnostic-gallery/{id}','Admin\DiagnosticController@gallery')->name('diagnosticGallery');
+     Route::post('diagnostic-gallery-save/{id}','Admin\DiagnosticController@gallerySave')->name('diagnosticGallerySave');
+     Route::get('diagnostic-gallery-delete/{id}','Admin\DiagnosticController@galleryDelete')->name('diagnosticGalleryDelete');
      /* Diagnostic route end*/
      /* Hospital route start*/
      Route::get('manage-hospital','Admin\HospitalController@index')->name('manageHospital');
@@ -64,6 +72,10 @@ Route::group(['as'=>'admin::','prefix'=>'cpanel/admin','middleware' => ['web','A
      Route::post('update-hospital/{id}','Admin\HospitalController@update')->name('updateHospital');
      Route::get('delete-hospital/{id}','Admin\HospitalController@delete')->name('deleteHospital');
      Route::post('hospital-status/','Admin\HospitalController@status')->name('hospitalStatus');
+
+     Route::get('hospital-gallery/{id}','Admin\HospitalController@gallery')->name('hospitalGallery');
+     Route::post('hospital-gallery-save/{id}','Admin\HospitalController@gallerySave')->name('hospitalGallerySave');
+     Route::get('hospital-gallery-delete/{id}','Admin\HospitalController@galleryDelete')->name('hospitalGalleryDelete');
      /* Hospital route end*/
      /* CMS route start*/
      Route::get('manage-content/{page}','Admin\CmsController@index')->name('manageContent');
