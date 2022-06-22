@@ -9,6 +9,7 @@ use DataTables;
 use App\CategoriesModel;
 use App\SubcategoriesModel;
 use App\DoctorsGallery;
+use Str;
 
 class DoctorController extends Controller
 {
@@ -69,6 +70,7 @@ class DoctorController extends Controller
                 'address' => 'required',
                 'description' => 'required',
             ], $msg);
+            $request['slug'] = Str::slug($request->name);
             $data = $request->except('_token','profile_image');
             $data['profile_image']=null;
             if($request->hasFile('image')){
@@ -106,6 +108,7 @@ class DoctorController extends Controller
             'address' => 'required',
             'description' => 'required',
         ], $msg);
+        $request['slug'] = Str::slug($request->name);
         $data = $request->except('_token','profile_image');
         $data['profile_image'] = DoctorsModel::where('id',$id)->value('profile_image');
         if($request->hasFile('profile_image')){

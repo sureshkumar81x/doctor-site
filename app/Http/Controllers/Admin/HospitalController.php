@@ -9,7 +9,7 @@ use App\CategoriesModel;
 use App\HospitalsGallery;
 use App\HospitalsModel;
 use App\SubcategoriesModel;
-
+use Str;
 class HospitalController extends Controller
 {
     public function index()
@@ -67,6 +67,7 @@ class HospitalController extends Controller
                 'address' => 'required',
                 'description' => 'required',
             ], $msg);
+            $request['slug'] = Str::slug($request->name);
             $data = $request->except('_token','image');
             $data['image']=null;
             if($request->hasFile('image')){
@@ -102,6 +103,7 @@ class HospitalController extends Controller
             'address' => 'required',
             'description' => 'required',
         ], $msg);
+        $request['slug'] = Str::slug($request->name);
         $data = $request->except('_token','image');
         $data['image'] = HospitalsModel::where('id',$id)->value('image');
         if($request->hasFile('image')){

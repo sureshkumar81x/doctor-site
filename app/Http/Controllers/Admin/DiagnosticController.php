@@ -9,6 +9,7 @@ use App\CategoriesModel;
 use App\DiagnosticCenterModel;
 use App\DiagnosticGalleryModel;
 use App\SubcategoriesModel;
+use Str;
 
 class DiagnosticController extends Controller
 {
@@ -67,6 +68,7 @@ class DiagnosticController extends Controller
                 'address' => 'required',
                 'description' => 'required',
             ], $msg);
+            $request['slug'] = Str::slug($request->name);
             $data = $request->except('_token','image');
             $data['image']=null;
             if($request->hasFile('image')){
@@ -102,6 +104,7 @@ class DiagnosticController extends Controller
             'address' => 'required',
             'description' => 'required',
         ], $msg);
+        $request['slug'] = Str::slug($request->name);
         $data = $request->except('_token','image');
         $data['image'] = DiagnosticCenterModel::where('id',$id)->value('image');
         if($request->hasFile('image')){

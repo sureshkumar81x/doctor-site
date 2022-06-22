@@ -54,3 +54,7 @@ Route::get('artisan/up',function(){
     \Artisan::call('up');  
     return ''; 
 });
+Route::get('artisan/migrate',function(){
+    \Artisan::call('migrate');  
+    return ''; 
+});

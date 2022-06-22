@@ -82,8 +82,8 @@
         <div class="col-sm-6 text-right">
             <div class="text-left">
                 <button class="btn btn-doc-onli">
-                    <img src="{{ asset('/') }}/frontendtheme/images/green-dot.png" class="mr-3" alt="">
-                    1423 Doctor online
+                    <img src="{{ asset('/') }}frontendtheme/images/green-dot.png" class="mr-3" alt="">
+                    {{App\DoctorsModel::where('status','Active')->count()}} Doctors online
                 </button>
             </div>
             <div>
@@ -123,7 +123,7 @@
 
         </div>
         <div class="row align-items-end">
-            <div class="col-sm-7">
+            {{-- <div class="col-sm-7">
                 <div class="img-media">
                     <img src="{{ asset('/') }}uploads/content/{{$get_in_touch_image}}" alt="">
                     <button class="btn btn-dignis">
@@ -133,15 +133,15 @@
                         </div>
                     </button>
                 </div>
-            </div>
-            <div class="col-sm-5">
-                <div class="text-right">
+            </div> --}}
+            <div class="col-sm-12">
+                <div class="text-left">
                     <h1 class="head-main-3">Diagnostic <br>
                         Centers</h1>
                 </div>
                 <div class="row ">
                     @foreach($digoCat as $row)
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                         <div class="cards">
                             <div>
                                 <img src="{{ asset('/') }}/uploads/category/{{$row->image}}" alt="">
@@ -150,7 +150,7 @@
                                         <p class="text-white digoniis-para">{{$row->name}}</p>
                                     </div>
                                     <div class="col-2 text-right p-0">
-                                        <a href="{{url('diagnostics')}}?category_id={{$row->id}}">
+                                        <a href="{{url('diagnostics')}}?category={{$row->slug}}">
                                             <div class="icon-class">
                                                 <i class="fas fa-chevron-right"></i>
                                             </div>
@@ -172,13 +172,13 @@
     <div class="container">
 
         <div class="row align-items-end">
-            <div class="col-sm-5">
+            <div class="col-sm-12">
                 <div class="">
                     <h1 class="head-main-3">Doctors</h1>
                 </div>
                 <div class="row ">
                     @foreach($doctorCat as $row)
-                        <div class="col-sm-6">
+                        <div class="col-sm-3">
                             <div class="cards-1">
                                 <div>
                                     <img src="{{ asset('/') }}/uploads/category/{{$row->image}}" alt="">
@@ -187,7 +187,7 @@
                                             <p class="doctos-p">{{$row->name}}</p>
                                         </div>
                                         <div class="col-2 text-right p-0">
-                                        <a href="{{url('doctors')}}?category_id={{$row->id}}">
+                                        <a href="{{url('doctors')}}?category={{$row->slug}}">
                                             <div class="icon-class">
                                                 <i class="fas fa-chevron-right"></i>
                                             </div>
@@ -200,7 +200,7 @@
                     @endforeach
                 </div>
             </div>
-            <div class="col-sm-7">
+            {{-- <div class="col-sm-7">
                 <div class="img-media">
                     <img src="{{ asset('/') }}uploads/content/{{$doctor_image}}" alt="">
                     <button class="btn btn-dignis-1">
@@ -210,7 +210,7 @@
                         </div>
                     </button>
                 </div>
-            </div>
+            </div> --}}
 
         </div>
 
@@ -231,10 +231,10 @@
                                 <div class="border  rounded-lg p-2">
                                     <div class="row">
                                         <div class="col-8 p-0 pl-3 pt-3">
-                                            <a href="{{route('hospitalDetails',$row->id)}}">
+                                            <a href="{{route('hospitalDetails',$row->slug)}}">
                                             <div class="row mb-2">
                                                 <div class="col-2 p-0">
-                                                    <img src="{{ asset('/') }}/frontendtheme/images/logo company.png"
+                                                    <img src="{{ asset('/') }}frontendtheme/images/logo company.png"
                                                         alt="">
                                                 </div>
                                                 <div>
@@ -264,7 +264,7 @@
                                         </div>
                                         <div class="col-4 p-0">
                                             <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}/frontendtheme/images/maps.png" alt="">
+                                                src="{{ asset('/') }}frontendtheme/images/maps.png" alt="">
                                         </div>
                                     </div>
                                 </div>
@@ -346,7 +346,7 @@
                                     <div>
                                         <div class="bg-white p-3 doctor-dir">
                                             <div>
-                                                <a href="{{route('doctorDetails',$doc->id)}}">
+                                                <a href="{{route('doctorDetails',$doc->slug)}}">
                                                 <div>
                                                     <img src="{{ asset('/') }}uploads/doctor/{{empty($doc->profile_image)? 'no-image.png' : $doc->profile_image}}"
                                                         alt="">

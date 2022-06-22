@@ -91,10 +91,10 @@
                                     d="M11.2169 12.173C13.2111 12.9665 14.6789 14.798 14.9534 17H3.04639C3.32089 14.798 4.78864 12.9665 6.78289 12.173L8.99989 15.5L11.2169 12.173ZM13.4999 2V6.5C13.4999 8.9855 11.4854 11 8.99989 11C6.51439 11 4.49989 8.9855 4.49989 6.5V2H13.4999ZM11.9999 6.5H5.99989C5.99989 8.1575 7.34239 9.5 8.99989 9.5C10.6574 9.5 11.9999 8.1575 11.9999 6.5Z"
                                     fill="#B5C1D7" />
                             </svg>
-                            <select class="form-control input-lg" name="hospital_id">
-                                <option value="">All Hospital</option>
-                                @foreach($hospital_list as $row)
-                                   <option value="{{$row->id}}}" @if(!empty(Request::get('hospital_id')) && (Request::get('hospital_id')==$row->id)) selected @endif>{{$row->name}}</option>
+                            <select class="form-control input-lg" name="category">
+                                <option value="">All Category</option>
+                                @foreach($category as $row)
+                                   <option value="{{$row->slug}}" @if(!empty(Request::get('category')) && (Request::get('category')==$row->slug)) selected @endif>{{$row->name}}</option>
                                 @endforeach
                             </select>
                             <i class="fa fa-chevron-down"></i>
@@ -195,7 +195,7 @@
                                                     </div>
                                                     <div class="col-sm-4 p-0">
                                                         <div>
-                                                            <a href="{{route('hospitalDetails',$row->id)}}">
+                                                            <a href="{{route('hospitalDetails',$row->slug)}}">
                                                             <div>
                                                                 <img class="img-review"
                                                                     src="{{ asset('/') }}uploads/hospital/{{empty($row->image)? 'no-image.png' : $row->image}}" alt="">
@@ -251,7 +251,7 @@
                                         <div>
                                             <div class="bg-white doctor-dir">
                                                 <div>
-                                                    <a href="{{route('hospitalDetails',$row->id)}}">
+                                                    <a href="{{route('hospitalDetails',$row->slug)}}">
                                                     <div>
                                                         <img src="{{asset('/')}}uploads/hospital/{{empty($row->image)? 'no-image.png' : $row->image}}" alt="">
                                                     </div>

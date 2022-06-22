@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\CategoriesModel;
 use App\SubcategoriesModel;
 use DataTables;
+use Str;
 
 class CategoriesController extends Controller
 {
@@ -66,9 +67,11 @@ class CategoriesController extends Controller
             $imageName =  rand(111111,99999) . '_' .time().'.'.$image->getClientOriginalExtension();
             $destinationPath = public_path('uploads/category');
             $image->move($destinationPath,$imageName);
+            $slug = Str::slug($request->name);
             CategoriesModel::create([
                 'name' => $name,
                 'image' =>$imageName,
+                'slug' => $slug,
                 'status' => 'Active'
             ]);
             return redirect()->back()->with('success','Category Added Successfully !!!');
@@ -98,9 +101,11 @@ class CategoriesController extends Controller
             $imageName =  rand(111111,99999) . '_' .time().'.'.$image->getClientOriginalExtension();
             $image->move($destinationPath,$imageName);
         }
+        $slug = Str::slug($request->name);
         CategoriesModel:: where('id',$id)->update([
             'name' => $name,
-            'image' =>$imageName
+            'image' =>$imageName,
+            'slug' => $slug
         ]);
 
         return redirect()->back()->with('success', 'Category Updated Successfully !!!');

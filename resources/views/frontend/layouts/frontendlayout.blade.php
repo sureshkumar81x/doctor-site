@@ -19,7 +19,7 @@
 
     <!-- Popper JS -->
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-    <link rel="stylesheet" href="{{ asset('/') }}/frontendtheme/style.css">
+    <link rel="stylesheet" href="{{ asset('/') }}frontendtheme/style.css">
 
     <!-- Latest compiled JavaScript -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
@@ -31,7 +31,7 @@
 <body>
     <section class="@if(\Request::route()->getName()=='home')banner-section @else banner-section-1 @endif">
         <nav class="navbar navbar-expand-lg navbar-dark bg-transprenat container pt-4">
-            <a class="navbar-brand" href="#">Medical Directory</a>
+            <a class="navbar-brand" href="{{route('home')}}">Medical Directory</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -242,7 +242,7 @@
                     <div class="col-sm-3">
                         <div class="text-left">
                             <button class="btn btn-doc-onli">
-                                <img src="{{asset('/')}}/frontendtheme/images/green-dot.png" class="mr-3" alt=""> 1423 Doctor online
+                                <img src="{{asset('/')}}frontendtheme/images/green-dot.png" class="mr-3" alt=""> {{App\DoctorsModel::where('status','Active')->count()}} Doctors online
                             </button>
                         </div>
                     </div>

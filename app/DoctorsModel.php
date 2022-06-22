@@ -14,8 +14,8 @@ class DoctorsModel extends Model
     use SoftDeletes;
 
     protected $dates = ['deleted_at'];
-    protected $fillable = array('category_id', 'subcategory_id', 'name', 'phone', 'address', 'latitude', 'longitude', 'description', 'contents','website','profile_image', 'working_hours', 'avg_rating', 'status');
-    protected $visible = array('id','category_id', 'subcategory_id', 'name', 'phone', 'address', 'latitude', 'longitude', 'description', 'contents','website', 'profile_image', 'working_hours', 'avg_rating', 'status');
+    protected $fillable = array('category_id', 'subcategory_id', 'name', 'phone', 'address', 'latitude', 'longitude', 'description', 'contents','website','profile_image','slug', 'working_hours', 'avg_rating', 'status');
+    protected $visible = array('id','category_id', 'subcategory_id', 'name', 'phone', 'address', 'latitude', 'longitude', 'description', 'contents','website', 'profile_image','slug', 'working_hours', 'avg_rating', 'status');
 
     public function reviews()
     {

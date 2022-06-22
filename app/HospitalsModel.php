@@ -9,8 +9,8 @@ class HospitalsModel extends Model
 
     protected $table = 'hospitals';
     public $timestamps = true;
-    protected $fillable = array('category_id', 'subcategory_id', 'name', 'address', 'phone', 'description', 'contents','website','working_hours','avg_rating', 'latitude', 'longitude', 'image', 'status');
-    protected $visible = array('id','category_id', 'subcategory_id', 'name', 'address', 'phone', 'description', 'contents','website','working_hours', 'avg_rating','latitude', 'longitude', 'image', 'status');
+    protected $fillable = array('category_id', 'subcategory_id', 'name', 'address', 'phone', 'description', 'contents','website','working_hours','avg_rating', 'latitude', 'longitude', 'image','slug', 'status');
+    protected $visible = array('id','category_id', 'subcategory_id', 'name', 'address', 'phone', 'description', 'contents','website','working_hours', 'avg_rating','latitude', 'longitude', 'image','slug', 'status');
 
     public function gallery()
     {

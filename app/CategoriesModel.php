@@ -9,8 +9,8 @@ class CategoriesModel extends Model
 
     protected $table = 'categories';
     public $timestamps = true;
-    protected $fillable = array('name', 'image', 'status');
-    protected $visible = array('id','name', 'image', 'status');
+    protected $fillable = array('name', 'image','slug', 'status');
+    protected $visible = array('id','name', 'image','slug', 'status');
 
     public function getDoctors()
     {
