@@ -1,5 +1,26 @@
 @extends('frontend.layouts.frontendlayout')
 @section('contents')
+<script>
+    var map;
+    function myMap(lat,lng,mapId) {
+        var mapOptions = {
+            center: new google.maps.LatLng(parseFloat(lat),parseFloat(lng)),
+            zoom: 10,
+            mapTypeId: google.maps.MapTypeId.HYBRID
+        }
+        map = new google.maps.Map(document.getElementById(mapId), mapOptions);
+        addMarker(mapOptions.center);
+    }  
+    // Function for adding a marker to the page.
+    function addMarker(location) {
+        marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+    }
+</script>
+<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkMEqoEE1brT48lNfuQpxGqVQ5jj6F6sU"></script>
 <div class="container mt-100">
     <div class="row">
         <div class="col-sm-6 pl-0">
@@ -263,9 +284,16 @@
                                             </div>
                                         </div>
                                         <div class="col-4 p-0">
-                                            <img style="width: -webkit-fill-available;"
-                                                src="{{ asset('/') }}frontendtheme/images/maps.png" alt="">
+                                            <div id="map_{{$row->id}}" style="width:100%;height:260px;background:grey" class="my-3"></div>
                                         </div>
+                                        <script>
+                                            var lat = "{{$row->latitude}}";
+                                            var lng = "{{$row->longitude}}";
+                                            lat = (lat)?lat:'13.0827';
+                                            lng = (lng)?lng:'80.2707';
+                                            var id = 'map_'+"{{$row->id}}";
+                                            myMap(lat,lng,id);
+                                        </script>
                                     </div>
                                 </div>
                             </div>
@@ -413,4 +441,6 @@
 
     </div>
 </section>
+@push('scripts')
+@endpush
 @endsection

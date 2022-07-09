@@ -319,16 +319,30 @@
 
 @push('scripts')
 <script>
+    var map;
     function myMap() {
+        var lat = "{{$info->latitude}}";
+        var lng = "{{$info->longitude}}";
+        lat = (lat)?lat:'13.0827';
+        lng = (lng)?lng:'80.2707';
         var mapOptions = {
-            center: new google.maps.LatLng(51.5, -0.12),
+            center: new google.maps.LatLng(parseFloat(lat),parseFloat(lng)),
             zoom: 10,
             mapTypeId: google.maps.MapTypeId.HYBRID
         }
-        var map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        map = new google.maps.Map(document.getElementById("map"), mapOptions);
+        addMarker(mapOptions.center);
     }  
+    // Function for adding a marker to the page.
+    function addMarker(location) {
+        marker = new google.maps.Marker({
+            position: location,
+            map: map
+        });
+    }
+
 </script>
 <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDkMEqoEE1brT48lNfuQpxGqVQ5jj6F6sU&callback=myMap"></script>
 @endpush
 @endsection

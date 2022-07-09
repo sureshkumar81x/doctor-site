@@ -75,6 +75,7 @@
         return true;
     }
 </script>
+<script type="text/javascript" src="https://maps.google.com/maps/api/js?key=AIzaSyDkMEqoEE1brT48lNfuQpxGqVQ5jj6F6sU&libraries=places"></script>
 @stack('scripts')
 </body>
 </html>

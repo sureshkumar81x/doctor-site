@@ -1,4 +1,5 @@
 @extends('admin.layouts.adminlayout')
+@section('title',"Admin : Medical Directory")
 @section('content')
 <!-- begin #content -->
 <div class="content-wrapper">

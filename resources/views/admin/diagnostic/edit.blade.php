@@ -70,8 +70,10 @@
                                     <div class="form-group">
                                         <label class="col-md-3 control-label">Diagnostic Address</label>
                                         <div class="col-md-6">
-                                            <input type="text" class="form-control" name="address" value="{{$info->address}}"
+                                            <input type="text" class="form-control" name="address" id="address" value="{{$info->address}}"
                                                    placeholder="Enter Diagnostic Address"/>
+                                                   <input type="hidden" name="latitude" id="latitude" value="{{$info->latitude}}" />
+                                                   <input type="hidden" name="longitude" id="longitude" value="{{$info->longitude}}"/>
                                         </div>
                                     </div>
                                     <div class="form-group">
@@ -150,5 +152,19 @@
           });
           
       </script>
+       <script>
+        $(document).ready(function(){
+          initialize();
+        });
+        function initialize() {
+            var input = document.getElementById('address');
+            var autocomplete = new google.maps.places.Autocomplete(input);
+            autocomplete.addListener('place_changed', function () {
+                var place = autocomplete.getPlace();
+                $('#latitude').val(place.geometry['location'].lat());
+                $('#longitude').val(place.geometry['location'].lng());
+            });
+        }
+    </script>
     @endpush
 @endsection
